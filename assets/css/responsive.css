@@ -1,0 +1,322 @@
+/* Media Queries
+-------------------------------------------------------------- */
+@media (min-width: 1200px) {
+
+}
+
+/* Smaller than standard 1200 */
+@media only screen and (max-width: 1199px) {
+	#mainnav > ul > li > a {
+		padding: 0 17px;
+	}
+}
+
+/* Smaller than standard 992 */
+@media only screen and (max-width: 991px) {
+	.header.header-sticky {
+	    max-width: 970px;
+	}
+	#container {
+		width: 100%;
+		margin: 0;
+	}
+	.blog section {
+	    margin-right: 0;
+	}
+	.mainslider ul li {
+	    height: 450px;
+	}
+	.mainslider ul li .slide-caption h1 {
+	    font-size: 40px;
+	}
+	.mainslider ul li .slide-caption h3 {
+		margin-top: 125px;
+	    font-size: 20px;
+	    position: relative;
+	    bottom: 100px;
+	}
+	.mainslider ul li .slide-caption {
+		margin-top: 11em;
+	}
+	.tab-content.lv2 .tab-pane {
+	    padding: 15px;
+	}
+	.schedule-wrapper article {
+	    padding: 15px;
+	}
+	.schedule-wrapper .post-wrap .post-media {
+	    max-width: 280px;
+	    margin-right: 15px;
+	}
+	.schedule-wrapper .post-title {
+		font-size: 25px;
+	}
+	.schedule-wrapper .carousel-event {
+	    width: 270px;
+	}
+	.main-content,
+	.sidebar,
+	.left-sidebar .main-content,
+	.left-sidebar .sidebar,
+	.right-sidebar .main-content,
+	.right-sidebar .sidebar {
+		float: none;
+		width: 100%;
+	}
+	.right-sidebar .blog-post .main-content > .content {
+		margin-right: 0;
+		padding-right: 0;
+		border-right: 0;
+	}
+	.left-sidebar .blog-post .main-content > .content {
+		margin-left: 0;
+		padding-left: 0;
+		border-left: 0;
+	}
+}
+
+/* Tablet Landscape */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+
+}
+
+/* Tablet Portrait Size */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	#mainnav > ul > li > a {
+		padding: 0 8px;
+		font-size: 15px;
+	}
+}
+
+/* All Mobile Sizes */
+@media only screen and (max-width: 767px) {
+	.btn-menu {
+	    position: absolute;
+	    display: inline-block;
+	    z-index: 999;
+	    top: -40px;
+	    right: 15px;
+	}
+	.btn-theme {
+	    font-size: 12px;
+	    padding: 12px 15px;
+	}
+	section {
+	    padding: 50px 15px;
+	}
+	.header-nav {
+	    width: calc(100% - 30px);
+	    margin: 15px;
+	    margin-bottom: 0;
+	}
+	.page-title {
+	    padding: 15px;
+	}
+	.page-title .bg-image {
+	    height: 250px;
+	}
+	.page-title h1 {
+	    top: 30%;
+	    font-size: 40px;
+	}
+	.blog section {
+	    margin-right: 0;
+	    padding: 15px;
+	}
+	.entry-post ul.list {
+	    margin: 20px 0;
+	}
+	.tags-share .tags,
+	.tags-share .share {
+	    width: 100%;
+	    margin-bottom: 15px;
+	}
+	.tags-share .tags ul,
+	.tags-share .share ul {
+	    padding-left: 0;
+	}
+	.tags-share .share {
+    	width: 100%;
+	    text-align: left;
+	}
+	.author > p.avatar {
+	    max-width: 100px;
+	}
+	.author > p.description {
+	    float: left;
+	    min-height: 100px;
+	    max-width: calc(100% - 100px);
+	    max-width: -ms-calc(100% - 100px);
+	    max-width: -moz-calc(100% - 100px);
+	    max-width: -webkit-calc(100% - 100px);
+	    padding: 10px;
+	}
+	.author > p.description span {
+	    margin-bottom: 8px;
+	}
+	.mainslider {
+		margin-top: 10px;
+	    padding: 15px;
+	}
+	.mainslider .event-background .wrap {
+		width: calc(100% - 30px);
+	}
+	.mainslider .event-background {
+	    top: 15px;
+	}
+	.mainslider .event-background .wrap > div {
+	    width: 50%;
+	    box-sizing: border-box;
+	    float: left;
+	    padding: 10px 0;
+	    letter-spacing: -0.2px;
+	}
+	.countdown-section {
+	    display: inline-block;
+	    text-align: center;
+	    width: calc(50% - 20px);
+	    margin: 5px;
+	    height: 80px;
+	    background: rgba(10,27,49,0.7);
+	}
+	.countdown-wrapper {
+	    bottom: 14px;
+	}
+	.countdown-section:nth-child(3),
+	.countdown-section:nth-child(4) {
+		margin-bottom: 0;
+	}
+	.countdown-section span.countdown-amount {
+	    display: block;
+	    font-size: 31px;
+	    font-weight: bold;
+	    color: #fff;
+	    line-height: 50px;
+	}
+	.mainslider ul li {
+	    height: 550px;
+	}
+	.mainslider ul li .slide-caption {
+	    margin-top: 14em;
+	}
+	.mainslider ul li .slide-caption h1 {
+	    font-size: 28px;
+	    line-height: 40px;
+	}
+	.mainslider .form-group {
+	    margin-bottom: 2px;
+	}
+	.mainslider form input[type="text"], .mainslider form select {
+	    height: 35px;
+	    padding: 6px 15px;
+	}
+	.mainslider ul li .slide2 .slide-caption {
+	    margin-top: 12em;
+	}
+	.mainslider ul li .slide2 .slide-caption h3 {
+	    margin-bottom: 0;
+	}
+	.mainslider form .btn-submit {
+	    padding: 6px 30px;
+	    font-size: 15px;
+	}
+	.section-title h3 {
+	    font-size: 25px;
+	}
+	.schedule-wrapper .schedule-tabs.lv1 .nav > li {
+	    border-left: none;
+	    margin-bottom: 22px;
+	}
+	.schedule-wrapper .schedule-tabs.lv1 .nav > li.active > a {
+		background: #8e0000;
+	}
+	.nav-justified > li > a {
+	    margin-bottom: 0;
+	}
+	.schedule-wrapper .schedule-tabs.lv2 .nav > li {
+	    border: 2px solid #8598b0;
+	    border-top: none;
+	}
+	.schedule-wrapper .schedule-tabs.lv2 .nav > li:first-child {
+	    border-top: 2px solid #8598b0;
+	}
+	.schedule-wrapper .schedule-tabs.lv2 .nav > li.active {
+	    border-bottom: 2px solid #8598b0;
+	}
+	.schedule-tabs.lv2 {
+	    border-top: none;
+	}
+	.schedule-wrapper .post-wrap .post-media {
+	    width: 100%;
+	    max-width: 100%;
+	    margin-right: 0;
+	    margin-bottom: 15px;
+	}
+	.schedule-wrapper .carousel-event {
+	    width: 100%;
+	}
+	.schedule-wrapper .post-wrap .media-body .post-meta {
+	    font-size: 14px;
+	}
+	.schedule-wrapper .socials {
+	    display: block;
+	    margin-left: 0;
+	}
+	.schedule-wrapper .post-title {
+	    font-size: 23px;
+	    line-height: 28px;
+	}
+	#register input,
+	#register select {
+	    width: calc(100% - 20px);
+	    margin: 5px 10px;
+	}
+	#donation h3 {
+	    font-size: 26px;
+	    line-height: 34px;
+	}
+	#donation p.subtitle {
+	    font-size: 16px;
+	}
+	#donation .btn-theme {
+	    margin-bottom: 10px;
+	}
+	.pricing-table .item {
+	    margin-bottom: 15px;
+	}
+	.contact-info ul li {
+		border-bottom: 1px solid;
+	    float: none !important;
+	    width: 100% !important;
+	    padding: 20px 0 10px!important;
+	    min-height: 50px !important;
+	}
+	#footer {
+		margin-bottom: 0;
+	    padding-bottom: 15px;
+	}
+}
+
+/* Mobile Landscape Size */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+}
+
+/* Mobile Portrait Size */
+@media only screen and (max-width: 479px) {
+}
+
+
+/* Retina Devices */
+	@media 
+	only screen and (-webkit-min-device-pixel-ratio: 2),
+	only screen and (   min--moz-device-pixel-ratio: 2),
+	only screen and (   -moz-min-device-pixel-ratio: 2),
+	only screen and (     -o-min-device-pixel-ratio: 2/1),
+	only screen and (        min-device-pixel-ratio: 2),
+	only screen and (                min-resolution: 192dpi),
+	only screen and (                min-resolution: 2dppx) {
+
+	/* Retina-specific stuff here */
+
+}

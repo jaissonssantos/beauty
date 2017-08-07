@@ -1,0 +1,313 @@
+/*
+Template Name: Admin
+Author: Jaisson Santos
+Email: jaissonssantos@gmail.com
+File: css
+*/
+/**
+ * Table Of Content
+ *
+ *  1. Colors
+ */
+@import url(https://fonts.googleapis.com/css?family=Poppins:400,500,300,600,700);
+/*Theme Colors*/
+/*bootstrap Color*/
+/*Normal Color*/
+/*Border radius*/
+/*Preloader*/
+.preloader {
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  position: fixed;
+  z-index: 99999;
+  background: #fff;
+}
+.preloader .cssload-speeding-wheel {
+  position: absolute;
+  top: calc(50% - 3.5px);
+  left: calc(50% - 3.5px);
+}
+/* This is for popins font for firefox */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/poppins/v1/2fCJtbhSlhNNa6S2xlh9GyEAvth_LlrfE80CYdSH47w.woff2) format('woff2');
+  unicode-range: U+02BC, U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200B-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+}
+/* This is for popins font for firefox */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/poppins/v1/UGh2YG8gx86rRGiAZYIbVyEAvth_LlrfE80CYdSH47w.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* This is for popins font for firefox */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/poppins/v1/yQWaOD4iNU5NTY0apN-qj_k_vArhqVIZ0nv9q090hN8.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/*Just change your choise color here its theme Colors*/
+body {
+  background: #fff;
+}
+/*Top Header Part*/
+.top-left-part {
+  background: rgba(0, 0, 0, 0.04);
+}
+.logo i {
+  color: #ffffff;
+}
+.logo b{
+  float: left;
+}
+.logo b img{
+  width: 55px;
+}
+.logo .title{
+  width: 100%;
+  display: block;
+  padding-left: 70px;
+  padding-top: 10px;
+}
+.logo span{
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  width: 100%;
+  display: block;
+}
+.logo span:nth-child(1){
+  font-size: 10px;
+  text-transform: uppercase;
+}
+.logo span:nth-child(2){
+  font-size: 17px;
+  text-transform: uppercase;
+}
+.logo span:nth-child(3){
+  font-size: 9px;
+  text-transform: uppercase;
+  padding-bottom: 5px;
+  letter-spacing: 0.1999em;
+}
+.navbar-header {
+  background: #D94432;
+}
+.navbar-top-links > li > a {
+  color: #ffffff;
+}
+/*Right panel*/
+.right-sidebar .rpanel-title {
+  background: #D94432;
+}
+/*Bread Crumb*/
+.bg-title .breadcrumb .active {
+  color: #D94432;
+}
+/*Sidebar*/
+.sidebar {
+  background: #fff;
+  box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
+}
+.sidebar .label-custom {
+  background: #01c0c8;
+}
+#side-menu li a {
+  color: #54667a;
+}
+#side-menu li a {
+  color: #54667a;
+  border-left: 0px solid #fff;
+}
+#side-menu > li > a:hover,
+#side-menu > li > a:focus {
+  background: rgba(0, 0, 0, 0.03);
+}
+#side-menu > li > a.active {
+  border-left: 3px solid #D94432;
+  color: #2b2b2b;
+  font-weight: 500;
+}
+#side-menu > li > a.active i {
+  color: #D94432;
+}
+#side-menu ul > li > a:hover {
+  color: #D94432;
+}
+#side-menu ul > li > a.active {
+  color: #2b2b2b;
+  font-weight: 500;
+}
+.sidebar #side-menu .user-pro .nav-second-level a:hover {
+  color: #D94432;
+}
+.fix-sidebar .top-left-part {
+  background: #D94432;
+}
+/*themecolor*/
+.bg-theme {
+  background-color: #fb9678 !important;
+}
+.bg-theme-dark {
+  background-color: #01c0c8 !important;
+}
+/*Chat widget*/
+.chat-list .odd .chat-text {
+  background: #D94432;
+}
+/*Button*/
+.btn-custom {
+  background: #D94432;
+  border: 1px solid #D94432;
+  color: #ffffff;
+}
+.btn-custom:hover {
+  background: #D94432;
+  opacity: 0.8;
+  color: #ffffff;
+  border: 1px solid #D94432;
+}
+.btn-block .btn-label{
+  float: left;
+  margin-right: 0;
+}
+/*Custom tab*/
+.customtab li.active a,
+.customtab li.active a:hover,
+.customtab li.active a:focus {
+  border-bottom: 2px solid #D94432;
+  color: #D94432;
+}
+.tabs-vertical li.active a,
+.tabs-vertical li.active a:hover,
+.tabs-vertical li.active a:focus {
+  background: #D94432;
+  border-right: 2px solid #D94432;
+}
+/*Nav-pills*/
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:focus,
+.nav-pills > li.active > a:hover {
+  background: #D94432;
+  color: #ffffff;
+}
+/*outline btn*/
+.btn-danger.btn-outline{
+  color: #00c292;
+  border-color: #00c292;
+}
+.btn-danger.btn-outline:hover{
+  background-color: #00c292;
+}
+.btn-add{
+  margin-top: -80px;
+}
+.well .fa-absolute{
+  position: absolute;
+  top: 7px !important;
+  right: 20px;
+  font-size: 18px;
+}
+.fa-absolute{
+  position: absolute;
+  top: 32px !important;
+  right: 20px;
+  font-size: 18px;
+}
+i.btn-label{
+  margin-left: -11px;
+}
+.btn-op{
+  padding: 8px 12px;
+  position: absolute;
+  right: 0px;
+  top: 0;
+  z-index: 99;
+}
+.btn-op i{
+  font-size: 20px;
+  color: #D94432;
+}
+.m-t-25 {
+    margin-top: 25px !important;
+}
+.modal-backdrop.in{
+  height: 100%;
+  width: 100%;
+}
+.modal-content{
+  margin-top: 50%;
+  top: 10px;
+}
+.modal-loading{
+  padding: 30px 0;
+}
+.modal-body fieldset legend{
+  font-size: 13px;
+  margin-bottom: 15px;
+  text-align: right;
+  font-weight: 500;
+  padding: 5px 0px;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+}
+.modal-body fieldset label{
+  font-size: 13px;
+  font-weight: 500;
+}
+.modal-body fieldset span.dados{
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.04);
+  font-size: 13px;
+  font-weight: 500;
+  display: block;
+}
+.modal-body fieldset .form-group{
+  margin-bottom: 10px;
+}
+.modal-body fieldset span.bg-success,
+.modal-body fieldset span.bg-warning,
+.modal-body fieldset span.bg-danger,
+.modal-body fieldset span.bg-default,
+.modal-body fieldset span.bg-info{
+  color: #FFF;
+}
+
+.modal-body fieldset span.bg-cracha{
+  background: #feffd4;
+}
+/*nav-tabs*/
+.nav-custom .nav-link.active, .nav-custom > li.active > a, .nav-custom > li.active > a:hover, .nav-custom > li.active > a:focus{
+  background-color: #f5f5f5;
+}
+.customtab{
+  border-bottom: 1px solid #f7fafc;
+}
+.tab-content{
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    margin-top: 0;
+    padding: 30px 15px 15px;
+}
+.row-registration{
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  margin: -20px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+#col-legenda .legenda ul{
+  display: block;
+  list-style: none;
+}
+#col-legenda .legenda ul li{
+  display: inline;
+  margin-right: 10px;
+}

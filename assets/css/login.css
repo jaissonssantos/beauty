@@ -1,0 +1,489 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css);
+
+body {
+  background: url(../images/pages/bg2.jpg) no-repeat center top fixed;
+  background-size: cover;
+  color: white;
+  font-family: 'Roboto';
+}
+p{
+  font-size: 13px;
+  color: #565656;
+}
+p.observacao{
+  padding: 15px;
+}
+.transparencia{
+  display: block;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+.flat-form {
+  background: #fff;
+  margin: 25px auto;
+  width: 100%;
+  min-height: 340px;
+  position: relative;
+  font-family: 'Roboto';
+  z-index: 10;
+}
+.tabs {
+  background: #c0392b;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  width: 100%;
+  position: relative;
+  display: block;
+  margin-bottom: 20px;
+}
+.tabs li {
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 33.33%;
+  background: #a82126;
+}
+.tabs a {
+  display: block;
+  float: left;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 14px 0 14px 0;
+  width: 100%;
+  text-align: center;
+  outline: none !important;
+  /*border-right: 1px solid @tab-border;*/
+
+}
+.tabs li:last-child a {
+  border-right: none;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+}
+.tabs li a.active {
+  background: #7f191e;
+  border-right: none;
+  -webkit-transition: all 0.5s linear;
+	-moz-transition: all 0.5s linear;
+	transition: all 0.5s linear;
+}
+.form-action {
+  padding: 0 20px 30px;
+  position: relative;
+}
+
+.form-action h1 {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin: 30px 0;
+  color: #7F191E;
+}
+.form-action p {
+  font-size: 12px;
+  padding-bottom: 10px;
+  line-height: 25px;
+}
+.form-action .alert p {
+  font-size: 12px;
+  padding-bottom: 0px;
+  line-height: 25px;
+}
+form {  }
+form input[type=text],
+form input[type=email],
+form input[type=password],
+form input[type=submit],
+.modal form input[type=text],
+.modal form input[type=submit] {
+  font-family: 'Roboto';
+  background-color: #ffffff;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  box-shadow: none;
+  color: #565656;
+  height: 40px;
+  padding: 8px 12px;
+}
+form label, .modal form label {
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  color: #888;
+}
+form .radio label, form .checkbox label, .modal form .radio label, .modal form .checkbox label {
+  line-height: 21px;
+}
+form .btn {
+  width: 130px;
+}
+
+form input[type=text],
+form input[type=password],
+.modal form input[type=text] {
+  width: 100%;
+  height: 40px;
+  font-family: 'Roboto';
+  background-color: #ffffff;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  box-shadow: none;
+  color: #565656;
+  padding: 8px 12px;
+}
+.form-control {
+  width: 100%;
+  height: 40px;
+  font-family: 'Roboto';
+  background-color: #ffffff;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  box-shadow: none;
+  color: #565656;
+  height: 40px;
+  padding: 8px 12px;
+}
+.form-group small{
+  margin-left: 5px;
+}
+.form-group abbr{
+  color: #a94442;
+  font-weight: 600;
+  margin: 0px 5px;
+}
+.form-group .error{
+  color: #a94442;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+.form-group span{
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 5px 0;
+}
+.form-group i.fa-validate{
+  top: 32px;
+  right: 5px;
+}
+.dark-box {
+  background: #5e0400;
+  box-shadow: 1px 3px 3px #3d0100 inset;
+  height: 40px;
+  width: 50px;
+}
+.form-action .dark-box.bottom {
+  position: absolute;
+  right: 0;
+  bottom: -24px;
+}
+.tabs + .dark-box.top {
+  position: absolute;
+  right: 0;
+  top: 0px;
+}
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+
+.button {
+    border: none;
+    display: block;
+    background: #136899;
+    height: 40px;
+    width: 120px;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 5px;
+    /*box-shadow: 0px 3px 1px #2075aa;*/
+  	-webkit-transition: all 0.15s linear;
+	  -moz-transition: all 0.15s linear;
+	  transition: all 0.15s linear;
+}
+
+.button:hover {
+  background: #1e75aa;
+  /*box-shadow: 0 3px 1px #237bb2;*/
+}
+
+.button:active {
+  background: #136899;
+  /*box-shadow: 0 3px 1px #0f608c;*/
+}
+
+::-webkit-input-placeholder {
+  color: #e74c3c;
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #e74c3c;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #e74c3c;
+}
+:-ms-input-placeholder {
+  color: #e74c3c;
+}
+
+.title {
+  display: block;
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  margin: -30px 0 0 0;
+}
+.title .separador {
+  display: block;
+  width: 100px;
+  height: 3px;
+  background-color: #fff;
+  position: relative;
+  margin: 5px auto;
+}
+.title h1{
+  font-size: 24px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 10px;
+  color: #FFF;
+}
+.title h2{
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+/*  text-transform: uppercase;*/
+  margin: 10px;
+  color: #FFF;
+}
+.loading-check{
+  position: absolute;
+  right: 25px;
+  top: 25px;
+}
+.formCartaoCredito .form-control {
+  margin-bottom: 10px;
+}
+.formCartaoCredito .bandeira{
+  margin-top: 25px;
+}
+.formCartaoCredito .bandeira img{
+  padding: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 0px 1px 1px #ccc;
+  width: 48px;
+  border-radius: 3px;
+  margin-right: 10px;
+}
+.transparent {
+    opacity: 0.2;
+}
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+.modal-backdrop.in{
+  height: 100%;
+  width: 100%;
+}
+.modal-loading{
+  display: block;
+  min-height: 80px;
+}
+.modal-loading .loading{
+  padding: 10px 0;
+  color: #565656;
+}
+.modal-title{
+  margin: 0;
+  line-height: 1.42857143;
+  color: #565656;
+  font-weight: 900;
+  font-family: 'Roboto';
+  letter-spacing: 0.099em;
+}
+.modal .gerando-boleto .back-drop{
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: #000;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  z-index: 999;
+}
+.modal .gerando-boleto .load{
+  margin-top: 100px;
+  position: absolute;
+  background-color: #FFF;
+  left: 28%;
+  text-align: center;
+  padding: 15px;
+  margin-left: 30px;
+  text-transform: uppercase;
+  z-index: 999;
+}
+.modal .carrinho{
+  float: right;
+  padding: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 0px 1px 1px #ccc;
+  border-radius: 3px;
+  margin-top: -25px;
+  position: relative;
+}
+.modal .carrinho i{
+  float: left;
+  color: #468638;
+  padding: 0px 5px 0px 5px;
+  font-size: 28px;
+}
+.modal .carrinho p{
+  font-family: sans-serif;
+  color: #4a4a4a;
+}
+.modal .carrinho .descricao{
+  font-size: 10px;
+  padding: 1px 8px 0 44px;
+}
+.modal .carrinho .valor{
+  font-size: 14px;
+  padding: 5px 8px 0 44px;
+  font-weight: 900;
+}
+.modal-body h1{
+  font-size: 28px;
+  line-height: 1.42857143;
+  font-family: 'Roboto';
+  margin: 0;
+  font-weight: 600;
+}
+.modal-body h2{
+  font-size: 22px;
+  line-height: 1.42857143;
+  font-family: 'Roboto';
+  margin: 0;
+  font-weight: 600;
+}
+.modal-body h3{
+  font-size: 18px;
+  line-height: 1.42857143;
+  font-family: 'Roboto';
+  margin: 0;
+  font-weight: 400;
+}
+.modal-body h4{
+  font-size: 16px;
+  line-height: 1.42857143;
+  font-family: 'Roboto';
+  margin: 0;
+  font-weight: 400;
+}
+.modal-body .mensagem p{
+  color: #4a4a4a;
+  margin: 5px 0;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.modal-body .mensagem img{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.modal-body .banco{
+  margin-top: 50px;
+  margin-bottom: 40px;
+  display: block;
+  border: 1px solid #ccc;
+  box-shadow: 0px 1px 1px #ccc;
+  border-radius: 3px;
+  min-height: 120px;
+}
+.modal-body .banco .logo{
+  width: 100%;
+  background: #f5f5f5;
+  padding: 7px 0;
+  text-align: center;
+  margin: 6px 0;
+  position: relative;
+}
+.modal-body .banco p{
+  font-size: 12px;
+  font-weight: 900;
+  font-family: sans-serif;
+  margin: 5px 0;
+  text-transform: uppercase;
+  padding: 0 5px;
+}
+.modal-body .pagamento{
+  min-height: 350px;
+}
+.modal-body .pagamento .forma-pagamento{
+  margin-top: 100px;
+  display: block;
+}
+.modal-body .pagamento .forma-pagamento{
+  margin-top: 100px;
+  display: block;
+  color: #333;
+  text-decoration: none;
+}
+.modal-body .pagamento .forma-pagamento:hover{
+  color: #7f191e;
+}
+.modal-body .pagamento .forma-pagamento p{
+  font-size: 13px;
+  text-transform: uppercase;
+  padding: 10px 0;
+}
+.modal-footer .ambiente-seguro{
+  float: left;
+  color: #61AE24;
+  font-size: 11px;
+  margin: 0px;
+  padding: 15px 0 0;
+  text-align: left;
+}
+.modal-footer .ambiente-seguro i{
+  margin-right: 5px;
+}
+.modal-footer .ambiente-seguro img{
+  margin-left: 5px;
+}
+@media (min-width: 768px){
+  modal-dialog {
+      width: 600px;
+      margin: 200px auto;
+  }
+}

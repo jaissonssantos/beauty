@@ -1,0 +1,19 @@
+@font-face {
+	font-family: 'Mongolian Baiti';
+	src: url('../fonts/MongolianBaiti.eot');
+	src: url('../fonts/MongolianBaiti.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/MongolianBaiti.woff') format('woff'),
+		url('../fonts/MongolianBaiti.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Alpaca Scarlett Demo';
+	src: url('../fonts/AlpacaScarlettDemo.eot');
+	src: url('../fonts/AlpacaScarlettDemo.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/AlpacaScarlettDemo.woff') format('woff'),
+		url('../fonts/AlpacaScarlettDemo.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
