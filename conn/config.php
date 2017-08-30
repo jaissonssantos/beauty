@@ -7,10 +7,10 @@ ini_set('display_errors', 1);
 //definindo os dados de acesso ao banco de dados(DEVELOPER)
 define('DB', 'mysql');
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'juridico');
+define('DB_NAME', 'labella');
 define('DB_USER', 'root');
 define('DB_PASS', 'root');
-define('SALT', '&$15#*cg!1='); //nunca mudar(salt padrão)
+define('SALT', '&$_100#*xh!9%0'); //nunca mudar(salt padrão)
 
 //definindo os dados de acesso ao banco de dados(PRODUÇÃO)
 // define('DB', 'mysql');
@@ -22,10 +22,11 @@ define('SALT', '&$15#*cg!1='); //nunca mudar(salt padrão)
 
 
 //definindo as URLs padrões do sistema e site
-define('URL_APP', 'http://congresso.dev');
-define('TITLE_APP', 'CONGRESSO JURÍDICO :: OAB ACRE');
-define('EMAIL_TITLE', 'CONGRESSO JURIDICO - OAB ACRE');
-define('EMAIL_NOREPLAY', 'congressojuridicoacre@gmail.com');
+define('URL_APP', 'http://localhost');
+define('STORAGE_URL', 'http://localhost/assets/images');
+define('TITLE_APP', 'La Bella - beleza e bem-estar de forma que você quer!');
+define('EMAIL_TITLE', 'La Bella');
+define('EMAIL_NOREPLAY', 'labella.ac@gmail.com');
 define('EMAIL_SUPPORT', 'jaissonssantos@gmail.com');
 define('DEBUG', false);
 
