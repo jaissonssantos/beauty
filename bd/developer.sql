@@ -6,8 +6,8 @@
 # https://github.com/sequelpro/sequelpro
 #
 # Host: localhost (MySQL 5.6.35)
-# Base de Dados: beautydream
-# Tempo de Geração: 2017-07-21 21:18:44 +0000
+# Base de Dados: labella
+# Tempo de Geração: 2017-08-31 20:58:31 +0000
 # ************************************************************
 
 
@@ -66,6 +66,15 @@ CREATE TABLE `artista` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `artista` WRITE;
+/*!40000 ALTER TABLE `artista` DISABLE KEYS */;
+
+INSERT INTO `artista` (`id`, `nome`, `email`, `telefone`, `senha`, `local`, `cep`, `endereco`, `numero`, `idcidade`, `experiencia`, `ondetrabalhou`, `idprofissao`, `created_at`, `updated_at`)
+VALUES
+	(1,'Juliana Silva','ju.silva@gmail.com','68999557788',NULL,NULL,NULL,NULL,NULL,NULL,0,'Montei meu próprio négocio para começar a trabalhar, o nome do estabelecimento foi chamado de Unhas Bela',1,'0000-00-00 00:00:00','0000-00-00 00:00:00');
+
+/*!40000 ALTER TABLE `artista` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump da tabela artista_atendimento
@@ -118,11 +127,12 @@ LOCK TABLES `categoria` WRITE;
 
 INSERT INTO `categoria` (`id`, `nome`, `imagem`)
 VALUES
-	(1,'Unhas','unhas.jpg'),
-	(2,'Brozeamento','bronze.jpg'),
-	(3,'Depilação','depilacao.jpg'),
-	(4,'Maquiagem','maquiagem.jpg'),
-	(5,'Massagem','massagem.jpg');
+	(1,'Unhas','cat-unhas.png'),
+	(2,'Bronzeamento','cat-bronzeamento.png'),
+	(3,'Depilação','cat-depilacao.png'),
+	(4,'Maquiagem','cat-maquiagem.png'),
+	(5,'Massagem','cat-massagem.png'),
+	(6,'Sobrancelha','cat-sobrancelha.png');
 
 /*!40000 ALTER TABLE `categoria` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -9879,6 +9889,8 @@ CREATE TABLE `cliente` (
   `senha` varchar(80) DEFAULT NULL,
   `telefone` varchar(14) DEFAULT NULL,
   `datanascimento` date DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -10262,9 +10274,9 @@ LOCK TABLES `servico` WRITE;
 
 INSERT INTO `servico` (`id`, `nome`, `idcategoria`, `descricao`, `duracao`, `imagem`)
 VALUES
-	(1,'Mãos',1,'O serviço inclui remoção do esmalte, corte, cutilagem e esmaltação das unhas das mãos. Todos materiais utilizados são descartáveis e esterilizados em autoclave. Duração: 30 a 45 minutos.',30,'unhas-maos.jpg'),
-	(2,'Pés',1,'O serviço inclui remoção do esmalte, corte, cutilagem e esmaltação das unhas das mãos. Todos materiais utilizados são descartáveis e esterilizados em autoclave. Duração: 45 minutos a 1h15min.',45,'unhas-pes.jpg'),
-	(3,'Pés e Mãos',1,'O serviço inclui remoção do esmalte, corte, cutilagem e esmaltação das unhas das mãos. Todos materiais utilizados são descartáveis e esterilizados em autoclave. Duração: De 1 a 2 horas.',60,'unhas-pes-maos.jpg'),
+	(1,'Mãos',1,'O serviço inclui remoção do esmalte, corte, cutilagem e esmaltação das unhas das mãos. Todos materiais utilizados são descartáveis e esterilizados em autoclave. Duração: 30 a 45 minutos.',30,'serv-unhas-maos.png'),
+	(2,'Pés',1,'O serviço inclui remoção do esmalte, corte, cutilagem e esmaltação das unhas das mãos. Todos materiais utilizados são descartáveis e esterilizados em autoclave. Duração: 45 minutos a 1h15min.',45,'serv-unhas-pes.png'),
+	(3,'Pés e Mãos',1,'O serviço inclui remoção do esmalte, corte, cutilagem e esmaltação das unhas das mãos. Todos materiais utilizados são descartáveis e esterilizados em autoclave. Duração: De 1 a 2 horas.',60,'serv-unhas-pes-maos.png'),
 	(4,'Limpeza de Sobrancelhas',3,'Remoção do execesso de pelos das sobrancelhas com pinça, sem modificar o desenho natural. Duração: até 30 minutos.',30,'depilacao-sobrancelhas.jpg'),
 	(5,'Axilas e Buço',3,'Remoção de pelos das axilas e buço com cera quente. Duração: 30 a 45 minutos.',30,'depilacao-axilas-buco.jpg'),
 	(6,'Virilha Íntima',3,'Remoção com cera quente dos pelos da virilha e região do ânus. Duração: 45 minutos a 1 hora.',45,'depilacao-virilha.jpg'),

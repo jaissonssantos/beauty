@@ -11,15 +11,20 @@ $params = json_decode(file_get_contents('php://input'));
 $response = new stdClass();
 
 try {
+
+    $id = isset($params->id) && $params->id > 0 ? $params->id : 0;
+
     $offset = isset($params->offset) && $params->offset > 0 ? $params->offset : 0;
     $limit = isset($params->limit) && $params->limit < 200 ? $params->limit : 200;
 
     $stmt = $oConexao->prepare(
-        "SELECT id,nome,imagem			
-		FROM categoria
+        "SELECT id,nome,descricao,duracao,imagem			
+		FROM servico
+        WHERE id=:id
 		ORDER BY id ASC
 		LIMIT :offset,:limit"
     );
+    $stmt->bindParam('id', $id, PDO::PARAM_INT);
     $stmt->bindParam('offset', $offset, PDO::PARAM_INT);
     $stmt->bindParam('limit', $limit, PDO::PARAM_INT);
     $stmt->execute();
