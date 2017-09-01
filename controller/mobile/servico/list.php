@@ -18,10 +18,14 @@ try {
     $limit = isset($params->limit) && $params->limit < 200 ? $params->limit : 200;
 
     $stmt = $oConexao->prepare(
-        "SELECT id,nome,descricao,duracao,imagem			
-		FROM servico
-        WHERE id=:id
-		ORDER BY id ASC
+        "SELECT sv.id,sv.nome,sv.descricao,sv.duracao,sv.imagem,    
+            (SELECT MIN(att.valor)
+            FROM artista_servico att 
+            WHERE 
+                att.idservico=sv.id
+            ) valor
+        FROM servico sv
+        WHERE sv.idcategoria=:id
 		LIMIT :offset,:limit"
     );
     $stmt->bindParam('id', $id, PDO::PARAM_INT);
