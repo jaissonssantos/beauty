@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.6.35)
 # Base de Dados: labella
-# Tempo de Geração: 2017-08-31 20:58:31 +0000
+# Tempo de Geração: 2017-09-06 16:37:14 +0000
 # ************************************************************
 
 
@@ -71,7 +71,7 @@ LOCK TABLES `artista` WRITE;
 
 INSERT INTO `artista` (`id`, `nome`, `email`, `telefone`, `senha`, `local`, `cep`, `endereco`, `numero`, `idcidade`, `experiencia`, `ondetrabalhou`, `idprofissao`, `created_at`, `updated_at`)
 VALUES
-	(1,'Juliana Silva','ju.silva@gmail.com','68999557788',NULL,NULL,NULL,NULL,NULL,NULL,0,'Montei meu próprio négocio para começar a trabalhar, o nome do estabelecimento foi chamado de Unhas Bela',1,'0000-00-00 00:00:00','0000-00-00 00:00:00');
+	(1,'Juliana Silva','ju.silva@gmail.com','68999557788',NULL,NULL,NULL,NULL,NULL,NULL,6,'Montei meu próprio négocio para começar a trabalhar, o nome do estabelecimento foi chamado de Unhas Bela',1,'0000-00-00 00:00:00','0000-00-00 00:00:00');
 
 /*!40000 ALTER TABLE `artista` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -108,6 +108,17 @@ CREATE TABLE `artista_servico` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `artista_servico` WRITE;
+/*!40000 ALTER TABLE `artista_servico` DISABLE KEYS */;
+
+INSERT INTO `artista_servico` (`id`, `idservico`, `idartista`, `valor`)
+VALUES
+	(1,1,1,15.00),
+	(2,2,1,25.00),
+	(3,3,1,40.00);
+
+/*!40000 ALTER TABLE `artista_servico` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump da tabela categoria
