@@ -18,7 +18,7 @@ try {
     $limit = isset($params->limit) && $params->limit < 200 ? $params->limit : 200;
 
     $stmt = $oConexao->prepare(
-        "SELECT sv.id,sv.nome,sv.descricao,sv.duracao,sv.imagem,    
+        "SELECT sv.id,sv.nome,sv.descricao,sv.duracao,sv.horas,sv.imagem,    
             (SELECT MIN(att.valor)
             FROM artista_servico att 
             WHERE 
