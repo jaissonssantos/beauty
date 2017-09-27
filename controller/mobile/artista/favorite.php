@@ -18,18 +18,47 @@ try {
 
     $oConexao->beginTransaction();
 
-    $stmt = $oConexao->prepare('INSERT INTO
-                 artista_favorito(idartista,idcliente
-                ) VALUES (?,?)');
+    $stmt = $oConexao->prepare(
+        'SELECT count(id) as qtd
+        FROM artista_favorito
+        WHERE
+            idartista=?
+        AND
+            idcliente=?'
+    );
+
     $stmt->execute(array(
         $params->id,
         $params->idcliente
     ));
+    $results = $stmt->fetchObject();
+
+    if($results->qtd < 1){
+        $stmt = $oConexao->prepare('INSERT INTO
+                     artista_favorito(idartista,idcliente
+                    ) VALUES (?,?)');
+        $stmt->execute(array(
+            $params->id,
+            $params->idcliente
+        ));
+        $response->success = 'Favoritado com sucesso';
+        $response->favorite = true;
+    }else{
+        $stmt = $oConexao->prepare(
+            'DELETE FROM artista_favorito WHERE idartista=? AND idcliente=?'
+        );
+        $stmt->execute(array(
+            $params->id,
+            $params->idcliente
+        ));
+        $response->success = 'Artista desfavoritado';
+        $response->favorite = false;
+    }
 
     $oConexao->commit();
 
     http_response_code(200);
-    $response->success = 'Favoritado com sucesso';
+    
 } catch (PDOException $e) {
     http_response_code(500);
     $response->error = 'Desculpa. Tivemos um problema, tente novamente mais tarde. '. $e->getMessage();

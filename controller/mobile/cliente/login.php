@@ -2,6 +2,7 @@
 
 use Utils\Conexao;
 
+header("access-control-allow-origin: *");
 header('Content-type: application/json');
 $oConexao = Conexao::getInstance();
 $params = json_decode(file_get_contents('php://input'));
@@ -11,35 +12,27 @@ try {
 
     if (!isset(
         $params->email,
-        $params->senha
+        $params->password
     )) {
         throw new Exception('Verifique os dados preenchidos', 400);
     }
 
     $stmt = $oConexao->prepare(
-        'SELECT id,nome,sobrenome,email,cpf,gestor
-		FROM usuario
+        'SELECT id,nome,sexo,email,telefone,datanascimento
+		FROM cliente
 		WHERE email=upper(?) 
 		AND 
-			senha=?
-		AND
-			status=1'
+			senha=?'
     );
     $stmt->execute(array(
         $params->email,
-        sha1(SALT.$params->senha)
+        sha1(SALT.$params->password)
     ));
     $results = $stmt->fetchObject();
 
     if($results){
-        $_SESSION['congresso_uid'] = $results->id;
-        $_SESSION['congresso_nome'] = $results->nome;
-        $_SESSION['congresso_sobrenome'] = $results->sobrenome;
-        $_SESSION['congresso_cpf'] = $results->cpf;
-        $_SESSION['congresso_email'] = $results->email;
-        $_SESSION['congresso_gestor'] = $results->gestor;
         $stmt = $oConexao->prepare(
-            'UPDATE usuario 
+            'UPDATE cliente 
 				SET login_at=now()
 			WHERE id=?'
         );
@@ -49,7 +42,7 @@ try {
     } 
     http_response_code(200);
     if (!$results) {
-        throw new Exception('Favor verifique os dados, credenciais informada está incorreta', 404);
+        throw new Exception('Opa! credencial informada está incorreta', 404);
     }
     $response = array(
         'results' => $results
