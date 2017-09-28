@@ -61,7 +61,7 @@ try {
     
 } catch (PDOException $e) {
     http_response_code(500);
-    $response->error = 'Desculpa. Tivemos um problema, tente novamente mais tarde. '. $e->getMessage();
+    $response->error = 'Desculpa, Tivemos um problema. Erro fatal: '. $e->getMessage();
 } catch (Exception $e) {
     http_response_code($e->getCode());
     $response->error = $e->getMessage();

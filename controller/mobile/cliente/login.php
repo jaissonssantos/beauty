@@ -2,6 +2,7 @@
 
 use Utils\Conexao;
 
+sleep(1);
 header("access-control-allow-origin: *");
 header('Content-type: application/json');
 $oConexao = Conexao::getInstance();
@@ -49,9 +50,8 @@ try {
     );
 
 } catch (PDOException $e) {
-    echo $e->getMessage();
     http_response_code(500);
-    $response->error = 'Desculpa. Tivemos um problema, tente novamente mais tarde';
+    $response->error = 'Desculpa, Tivemos um problema. Erro fatal: '. $e->getMessage();
 } catch (Exception $e) {
     http_response_code($e->getCode());
     $response->error = $e->getMessage();
