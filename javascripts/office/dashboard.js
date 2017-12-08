@@ -3,6 +3,65 @@ var clientes, pagamentos = {};
 
 $(document).ready(function(){
 
+    $('#calendar').fullCalendar({
+        schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
+        locale: 'pt-br',
+        timezone: 'local',
+        ignoreTimezone: true,
+        defaultView: 'agendaDay',
+        slotDuration: '00:15:00',
+        // defaultDate: ($scope.aplicacao.ano+'-'+$scope.aplicacao.mes+'-'+$scope.aplicacao.dia),
+        defaultDate: '2017-11-07',
+        editable: true,
+        eventLimit: true,
+        selectable: true,
+        header: {
+            left: 'agendaDay,agendaWeek',
+            center: 'today, prev, title, next',
+            right: ''
+        },
+        titleFormat: 'ddd D MMM, YYYY',
+        allDaySlot: false,
+        resources: [
+            { id: 'a', title: 'Room A' },
+            { id: 'b', title: 'Room B', eventColor: 'green' },
+            { id: 'c', title: 'Room C', eventColor: 'orange' },
+            { id: 'd', title: 'Room D', eventColor: 'red' }
+        ],
+        events: [
+            { id: '1', resourceId: 'a', start: '2017-11-06', end: '2017-11-08', title: 'event 1' },
+            { id: '2', resourceId: 'a', start: '2017-11-07T09:00:00', end: '2017-11-07T14:00:00', title: 'event 2' },
+            { id: '3', resourceId: 'b', start: '2017-11-07T12:00:00', end: '2017-11-08T06:00:00', title: 'event 3' },
+            { id: '4', resourceId: 'c', start: '2017-11-07T07:30:00', end: '2017-11-07T09:30:00', title: 'event 4' },
+            { id: '5', resourceId: 'd', start: '2017-11-07T10:00:00', end: '2017-11-07T15:00:00', title: 'event 5' }
+        ],
+        // resources: $scope.profissionais,
+        // events: $scope.agendas,
+        eventDrop: function(event, delta, revertFunc) {
+
+     //        alert(event.title + " was dropped on " + event.start.format());
+
+     //        if (!confirm("Are you sure about this change?")) {
+     //            revertFunc();
+     //        }
+
+        },
+        select: function(start,end,event,view,resource) {
+            console.log(resource);
+            // console.log(view);
+            // $scope.tooltip(event);
+            // $scope.agendamento.start =  new Date(start);
+            // $scope.agendamento.end = new Date(end);
+            // $scope.agendamento.profissional = resource.id;
+        },
+        // eventClick: function(event) {
+  //           console.log(event);
+  //       },
+  //       eventDrop: function(event, delta, revertFunc) {
+  //           console.log(event);
+  //       }
+    });
+
     function list(){
         //list
         app.util.getjson({
@@ -114,6 +173,6 @@ $(document).ready(function(){
     }
 
     //init
-    list();
+    // list();
 
 });

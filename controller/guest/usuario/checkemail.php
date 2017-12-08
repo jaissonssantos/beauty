@@ -8,32 +8,21 @@ $params = json_decode(file_get_contents('php://input'));
 $response = new stdClass();
 
 try {
-    if (!isset(
-        $_SESSION['congresso_uid'],
-        $params->senha
-    )) {
+    if (!isset($params->email)) {
         throw new Exception('Verifique os dados preenchidos', 400);
     }
 
-    $oConexao->beginTransaction();
+    $stmt = $oConexao->prepare('SELECT id FROM usuario WHERE upper(email) = upper(:email) LIMIT 1');
+    $stmt->bindParam('email', $params->email);
+    $stmt->execute();
+    $usuario = $stmt->fetchObject();
 
-    $params->senha = sha1(SALT.$params->senha);
-    $id = $_SESSION['congresso_uid'];
-
-    $stmt = $oConexao->prepare(
-        'UPDATE usuario 
-            SET senha=? 
-            WHERE id=?'
-    );
-    $stmt->execute(array(
-        $params->senha,
-        $id
-    ));
-
-    $oConexao->commit();
+    if (!$usuario) {
+        throw new Exception('Email não cadastrado', 404);
+    }
 
     http_response_code(200);
-    $response->success = 'Senha redefinida com sucesso';
+    $response->success = 'Email encontrado';
 } catch (PDOException $e) {
     http_response_code(500);
     $response->error = 'Desculpa. Tivemos um problema, tente novamente mais tarde';

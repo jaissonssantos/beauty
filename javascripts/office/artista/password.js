@@ -57,7 +57,7 @@ $(document).ready(function(){
             params = JSON.stringify(usuarios);
 
             app.util.getjson({
-                url : "/controller/office/cliente/password",
+                url : "/controller/office/artista/password",
                 method : 'POST',
                 contentType : "application/json",
                 data: params,

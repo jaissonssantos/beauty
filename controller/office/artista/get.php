@@ -16,15 +16,11 @@ try {
     }
 
     $stmt = $oConexao->prepare(
-        'SELECT
-            c.id,UPPER(CONCAT(c.nome,\' \', c.sobrenome)) cliente,c.nome,c.sobrenome,c.cpf,c.cracha,c.email,c.telefone,c.sexo,
-            cid.nome cidade,cid.id idcidade,cid.idestado,ps.nome pais,ps.id idpais,
-            DATE_FORMAT(c.created_at, "%d/%m/%Y %h\h%i") created_at,
-            DATE_FORMAT(c.updated_at, "%d/%m/%Y %h\h%i") updated_at
-        FROM usuario c
-        LEFT JOIN cidade cid ON c.idcidade = cid.id
-        RIGHT JOIN pais ps ON c.idpais = ps.id
-        WHERE c.id=?
+        'SELECT id,idempresa,nome,email,idprofissao,status,
+            DATE_FORMAT(created_at, "%d/%m/%Y %h\h%i") created_at,
+            DATE_FORMAT(updated_at, "%d/%m/%Y %h\h%i") updated_at
+        FROM artista 
+        WHERE id=?
         LIMIT 1'
     );
 

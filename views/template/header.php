@@ -15,15 +15,10 @@
                 <i class="ti-menu"></i>
             </a>
             <div class="top-left-part">
-                <a class="logo" href="<?=($_SESSION['congresso_gestor'] == 1 ? '/administrador/dashboard' : '/office/dashboard')?>">
+                <a class="logo" href="/office/dashboard">
                     <b>
-                        <img src="assets/images/common/icon-dashboard.svg" alt="home" />
+                        <img src="assets/images/common/icon_logo_white.svg" alt="home" />
                     </b>
-                    <div class="title">
-                        <span class="hidden-xs">Congresso</span>
-                        <span class="hidden-xs">Jurídico</span>
-                        <span class="hidden-xs">OAB ACRE</span>
-                    </div>
                 </a>
             </div>
         </div>

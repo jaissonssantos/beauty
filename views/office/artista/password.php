@@ -34,4 +34,4 @@
 
 <!-- javascripts -->
 <script type="text/javascript" src="assets/javascript/jquery.validate.min.js"></script>
-<script type="text/javascript" src="javascripts/office/cliente/password.js"></script>
+<script type="text/javascript" src="javascripts/office/artista/password.js"></script>

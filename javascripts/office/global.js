@@ -24,7 +24,7 @@ $(document).ready(function(){
             backdrop: 'static'
         }
         $("div#modal").modal(options);
-        $('div#modal .modal-content').load('views/office/cliente/password.php');
+        $('div#modal .modal-content').load('views/office/artista/password.php');
         return false;
     });
 
