@@ -1,13 +1,13 @@
 # ************************************************************
 # Sequel Pro SQL dump
-# Versão 4541
+# Version 4541
 #
 # http://www.sequelpro.com/
 # https://github.com/sequelpro/sequelpro
 #
 # Host: localhost (MySQL 5.6.35)
-# Base de Dados: labella
-# Tempo de Geração: 2017-09-06 16:37:14 +0000
+# Database: labella
+# Generation Time: 2017-12-08 20:22:47 +0000
 # ************************************************************
 
 
@@ -20,7 +20,7 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
-# Dump da tabela agenda
+# Dump of table agenda
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `agenda`;
@@ -31,7 +31,7 @@ CREATE TABLE `agenda` (
   `idservico` int(11) DEFAULT NULL,
   `idvoucher` int(11) DEFAULT NULL,
   `codigo` varchar(80) DEFAULT NULL COMMENT 'codigo de pagamento da operadora',
-  `valor` decimal(10,0) DEFAULT NULL COMMENT 'valor pago pelo cliente no ato do agendamento',
+  `valor` decimal(10,2) DEFAULT NULL COMMENT 'valor pago pelo cliente no ato do agendamento',
   `status` int(11) DEFAULT NULL COMMENT '1 - atendido/ 2 - agendado/ 3 - cancelado ',
   `inicio` datetime DEFAULT NULL,
   `fim` datetime DEFAULT NULL,
@@ -42,42 +42,41 @@ CREATE TABLE `agenda` (
 
 
 
-# Dump da tabela artista
+# Dump of table artista
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `artista`;
 
 CREATE TABLE `artista` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `idempresa` int(11) unsigned DEFAULT NULL,
   `nome` varchar(80) DEFAULT NULL,
   `email` varchar(120) NOT NULL DEFAULT '',
-  `telefone` varchar(14) NOT NULL DEFAULT '',
   `senha` varchar(80) DEFAULT NULL,
-  `local` int(11) DEFAULT NULL COMMENT 'possui estabelecimento? 1 - sim / 2 - não',
-  `cep` varchar(10) DEFAULT NULL,
-  `endereco` varchar(60) DEFAULT NULL,
-  `numero` int(11) DEFAULT NULL,
-  `idcidade` int(11) DEFAULT NULL,
-  `experiencia` int(11) DEFAULT NULL COMMENT 'quanto tempo você tem de profissão? 1 - menos de 6 meses / 2 - entre 6 e 11 meses / 3 - um ano / 4 - dois anos / 5 - três anos / 6 - mais de três anos',
-  `ondetrabalhou` varchar(200) DEFAULT NULL,
   `idprofissao` int(11) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `idempresa` (`idempresa`),
+  CONSTRAINT `artista_ibfk_1` FOREIGN KEY (`idempresa`) REFERENCES `empresa` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `artista` WRITE;
 /*!40000 ALTER TABLE `artista` DISABLE KEYS */;
 
-INSERT INTO `artista` (`id`, `nome`, `email`, `telefone`, `senha`, `local`, `cep`, `endereco`, `numero`, `idcidade`, `experiencia`, `ondetrabalhou`, `idprofissao`, `created_at`, `updated_at`)
+INSERT INTO `artista` (`id`, `idempresa`, `nome`, `email`, `senha`, `idprofissao`, `status`, `created_at`, `updated_at`)
 VALUES
-	(1,'Juliana Silva','ju.silva@gmail.com','68999557788',NULL,NULL,NULL,NULL,NULL,NULL,6,'Montei meu próprio négocio para começar a trabalhar, o nome do estabelecimento foi chamado de Unhas Bela',1,'0000-00-00 00:00:00','0000-00-00 00:00:00');
+	(1,1,'Sebastião Júnior','sebastiao.junior@gmail.com','a58aefc4f3465a8482a8fd96a40b54e8fcd14082',1,1,'2017-12-08 14:57:00','2017-12-08 14:57:00'),
+	(2,1,'Alan João','aloebn@gmail.com','a58aefc4f3465a8482a8fd96a40b54e8fcd14082',1,1,'2017-12-08 14:57:00','2017-12-08 14:57:00'),
+	(3,1,'Thesca Souza','thesca@gmail.com','a58aefc4f3465a8482a8fd96a40b54e8fcd14082',1,1,'2017-12-08 14:57:00','2017-12-08 14:57:00'),
+	(4,1,'Jaisson Santos','jaissonssantos@gmail.com','a58aefc4f3465a8482a8fd96a40b54e8fcd14082',2,1,'2017-12-08 14:57:00','2017-12-08 14:57:00');
 
 /*!40000 ALTER TABLE `artista` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
-# Dump da tabela artista_atendimento
+# Dump of table artista_atendimento
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `artista_atendimento`;
@@ -95,33 +94,7 @@ CREATE TABLE `artista_atendimento` (
 
 
 
-# Dump da tabela artista_servico
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `artista_servico`;
-
-CREATE TABLE `artista_servico` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `idservico` int(11) DEFAULT NULL,
-  `idartista` int(11) DEFAULT NULL,
-  `valor` decimal(10,2) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-LOCK TABLES `artista_servico` WRITE;
-/*!40000 ALTER TABLE `artista_servico` DISABLE KEYS */;
-
-INSERT INTO `artista_servico` (`id`, `idservico`, `idartista`, `valor`)
-VALUES
-	(1,1,1,15.00),
-	(2,2,1,25.00),
-	(3,3,1,40.00);
-
-/*!40000 ALTER TABLE `artista_servico` ENABLE KEYS */;
-UNLOCK TABLES;
-
-
-# Dump da tabela categoria
+# Dump of table categoria
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `categoria`;
@@ -149,7 +122,7 @@ VALUES
 UNLOCK TABLES;
 
 
-# Dump da tabela cidade
+# Dump of table cidade
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `cidade`;
@@ -9887,7 +9860,7 @@ VALUES
 UNLOCK TABLES;
 
 
-# Dump da tabela cliente
+# Dump of table cliente
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `cliente`;
@@ -9902,12 +9875,138 @@ CREATE TABLE `cliente` (
   `datanascimento` date DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
+  `login_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `cliente` WRITE;
+/*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
+
+INSERT INTO `cliente` (`id`, `nome`, `sexo`, `email`, `senha`, `telefone`, `datanascimento`, `created_at`, `updated_at`, `login_at`)
+VALUES
+	(1,'Mark Doe','M','markdoe@gmail.com','a58aefc4f3465a8482a8fd96a40b54e8fcd14082','(68)99978-1476','1990-01-01','2017-10-25 00:00:00','2017-10-25 00:00:00','2017-09-27 10:59:35'),
+	(2,'John Doe','M','johndoe@gmail.com','a58aefc4f3465a8482a8fd96a40b54e8fcd14082','(68)99223-1392','1993-02-15','2017-10-25 00:00:00','2017-10-25 00:00:00',NULL),
+	(3,'Marie Mark','F','marie.mark@gmail.com','a58aefc4f3465a8482a8fd96a40b54e8fcd14082','(68)99977-8899','1994-09-23','2017-10-24 00:00:00','2017-10-24 00:00:00',NULL),
+	(7,'Joe doe','M','joe@gmail.com','919bc1a37c859b3f0faf34f227af7509e52f2549','(68)99977-1911',NULL,'2017-09-28 10:53:34','2017-09-28 10:53:34','2017-09-28 16:16:14'),
+	(8,'Julie Doe','F','julie@gmail.com','919bc1a37c859b3f0faf34f227af7509e52f2549','(68)99944-5566',NULL,'2017-09-28 11:18:11','2017-09-28 11:18:11','2017-09-28 16:17:24'),
+	(9,'Jaisson Santos','M','jaissonssantos@gmail.com','a58aefc4f3465a8482a8fd96a40b54e8fcd14082','(68)99946-1911','1990-07-09','2017-10-05 09:21:52','2017-10-18 08:06:39','2017-10-18 08:03:15'),
+	(10,'Ana paula','F','anapaula@gmail.com','919bc1a37c859b3f0faf34f227af7509e52f2549','(68)99998-8999','1994-03-03','2017-10-18 08:21:32','2017-10-18 08:22:05','2017-10-18 08:21:32');
+
+/*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table empresa
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `empresa`;
+
+CREATE TABLE `empresa` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `idcategoria` int(11) unsigned DEFAULT NULL,
+  `nome` varchar(80) DEFAULT NULL,
+  `telefone` varchar(14) DEFAULT NULL,
+  `cep` varchar(10) DEFAULT NULL,
+  `endereco` varchar(60) DEFAULT NULL,
+  `numero` int(11) DEFAULT NULL,
+  `idcidade` int(11) DEFAULT NULL,
+  `imagem` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idcidade` (`idcidade`),
+  KEY `idcategoria` (`idcategoria`),
+  CONSTRAINT `empresa_ibfk_1` FOREIGN KEY (`idcidade`) REFERENCES `cidade` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `empresa_ibfk_2` FOREIGN KEY (`idcategoria`) REFERENCES `categoria` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `empresa` WRITE;
+/*!40000 ALTER TABLE `empresa` DISABLE KEYS */;
+
+INSERT INTO `empresa` (`id`, `idcategoria`, `nome`, `telefone`, `cep`, `endereco`, `numero`, `idcidade`, `imagem`, `created_at`, `updated_at`)
+VALUES
+	(1,1,'Sebastian Salon','+556899969909',NULL,NULL,NULL,16,NULL,'2017-06-12 00:00:00','2017-06-12 00:00:00'),
+	(2,1,'Aloe Beauty & nails','+556899871909',NULL,NULL,NULL,16,'artiste-aloe.jpeg','2017-06-12 00:00:00','2017-06-12 00:00:00'),
+	(3,1,'Fresh Nails - Neutral Bay','+556892117088',NULL,NULL,NULL,16,'artiste-fresh.jpeg','2017-06-12 00:00:00','2017-06-12 00:00:00');
+
+/*!40000 ALTER TABLE `empresa` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table empresa_avaliacao
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `empresa_avaliacao`;
+
+CREATE TABLE `empresa_avaliacao` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `idempresa` int(11) DEFAULT NULL,
+  `idcliente` int(11) unsigned DEFAULT NULL,
+  `nota` int(11) DEFAULT NULL,
+  `comentario` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idcliente` (`idcliente`),
+  CONSTRAINT `empresa_avaliacao_ibfk_2` FOREIGN KEY (`idcliente`) REFERENCES `cliente` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `empresa_avaliacao` WRITE;
+/*!40000 ALTER TABLE `empresa_avaliacao` DISABLE KEYS */;
+
+INSERT INTO `empresa_avaliacao` (`id`, `idempresa`, `idcliente`, `nota`, `comentario`)
+VALUES
+	(1,1,1,4,'O atendimento perfeito! super recomendo'),
+	(2,1,2,5,'Profissional super atencioso!!!'),
+	(3,1,3,1,'Estabelecimento não tem uma estrutura muito boa!');
+
+/*!40000 ALTER TABLE `empresa_avaliacao` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table empresa_favorito
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `empresa_favorito`;
+
+CREATE TABLE `empresa_favorito` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `idempresa` int(11) unsigned DEFAULT NULL,
+  `idcliente` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idcliente` (`idcliente`),
+  KEY `idempresa` (`idempresa`),
+  CONSTRAINT `empresa_favorito_ibfk_2` FOREIGN KEY (`idcliente`) REFERENCES `cliente` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `empresa_favorito_ibfk_3` FOREIGN KEY (`idempresa`) REFERENCES `empresa` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
-# Dump da tabela estado
+# Dump of table empresa_servico
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `empresa_servico`;
+
+CREATE TABLE `empresa_servico` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `idempresa` int(11) unsigned DEFAULT NULL,
+  `idservico` int(11) DEFAULT NULL,
+  `valor` decimal(10,2) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idempresa` (`idempresa`),
+  CONSTRAINT `empresa_servico_ibfk_1` FOREIGN KEY (`idempresa`) REFERENCES `empresa` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `empresa_servico` WRITE;
+/*!40000 ALTER TABLE `empresa_servico` DISABLE KEYS */;
+
+INSERT INTO `empresa_servico` (`id`, `idempresa`, `idservico`, `valor`)
+VALUES
+	(7,1,1,12.00);
+
+/*!40000 ALTER TABLE `empresa_servico` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table estado
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `estado`;
@@ -9959,7 +10058,7 @@ VALUES
 UNLOCK TABLES;
 
 
-# Dump da tabela pais
+# Dump of table pais
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `pais`;
@@ -10237,7 +10336,7 @@ VALUES
 UNLOCK TABLES;
 
 
-# Dump da tabela profissao
+# Dump of table profissao
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `profissao`;
@@ -10263,7 +10362,7 @@ VALUES
 UNLOCK TABLES;
 
 
-# Dump da tabela servico
+# Dump of table servico
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `servico`;
@@ -10274,6 +10373,7 @@ CREATE TABLE `servico` (
   `idcategoria` int(11) unsigned DEFAULT NULL,
   `descricao` varchar(200) DEFAULT NULL,
   `duracao` int(11) DEFAULT NULL COMMENT 'minutos',
+  `horas` varchar(40) DEFAULT NULL,
   `imagem` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `idcategoria` (`idcategoria`),
@@ -10283,23 +10383,23 @@ CREATE TABLE `servico` (
 LOCK TABLES `servico` WRITE;
 /*!40000 ALTER TABLE `servico` DISABLE KEYS */;
 
-INSERT INTO `servico` (`id`, `nome`, `idcategoria`, `descricao`, `duracao`, `imagem`)
+INSERT INTO `servico` (`id`, `nome`, `idcategoria`, `descricao`, `duracao`, `horas`, `imagem`)
 VALUES
-	(1,'Mãos',1,'O serviço inclui remoção do esmalte, corte, cutilagem e esmaltação das unhas das mãos. Todos materiais utilizados são descartáveis e esterilizados em autoclave. Duração: 30 a 45 minutos.',30,'serv-unhas-maos.png'),
-	(2,'Pés',1,'O serviço inclui remoção do esmalte, corte, cutilagem e esmaltação das unhas das mãos. Todos materiais utilizados são descartáveis e esterilizados em autoclave. Duração: 45 minutos a 1h15min.',45,'serv-unhas-pes.png'),
-	(3,'Pés e Mãos',1,'O serviço inclui remoção do esmalte, corte, cutilagem e esmaltação das unhas das mãos. Todos materiais utilizados são descartáveis e esterilizados em autoclave. Duração: De 1 a 2 horas.',60,'serv-unhas-pes-maos.png'),
-	(4,'Limpeza de Sobrancelhas',3,'Remoção do execesso de pelos das sobrancelhas com pinça, sem modificar o desenho natural. Duração: até 30 minutos.',30,'depilacao-sobrancelhas.jpg'),
-	(5,'Axilas e Buço',3,'Remoção de pelos das axilas e buço com cera quente. Duração: 30 a 45 minutos.',30,'depilacao-axilas-buco.jpg'),
-	(6,'Virilha Íntima',3,'Remoção com cera quente dos pelos da virilha e região do ânus. Duração: 45 minutos a 1 hora.',45,'depilacao-virilha.jpg'),
-	(7,'Meia Perna',3,'Remoção dos pelos da coxa ou da canela com cera quente. Duração: 30 minutos.',30,'depilacao-meiaperna.jpg'),
-	(8,'Perna Inteira',3,'Remoção dos pelos de toda a perna com cera quente. Duracao: 45min a 1 hora. ',45,'depilacao-pernainteira.jpg'),
-	(9,'Completa',3,'Inclui a depilação com cera quente das axilas, buço, virilha, pernas e limpeza das sobrancellhas com pinça. Duração: 1 a 2 horas.',60,'depilacao-completa.jpg');
+	(1,'Mãos',1,'O serviço inclui remoção do esmalte, corte, cutilagem e esmaltação das unhas das mãos. Todos materiais utilizados são descartáveis e esterilizados em autoclave.',30,'30 a 45 minutos','serv-unhas-maos.png'),
+	(2,'Pés',1,'O serviço inclui remoção do esmalte, corte, cutilagem e esmaltação das unhas das mãos. Todos materiais utilizados são descartáveis e esterilizados em autoclave.',45,'45 minutos a 1h15min','serv-unhas-pes.png'),
+	(3,'Pés e Mãos',1,'O serviço inclui remoção do esmalte, corte, cutilagem e esmaltação das unhas das mãos. Todos materiais utilizados são descartáveis e esterilizados em autoclave.',60,'1 a 2 horas','serv-unhas-pes-maos.png'),
+	(4,'Limpeza de Sobrancelhas',3,'Remoção do execesso de pelos das sobrancelhas com pinça, sem modificar o desenho natural.',30,'até 30 minutos','depilacao-sobrancelhas.jpg'),
+	(5,'Axilas e Buço',3,'Remoção de pelos das axilas e buço com cera quente.',30,'30 a 45 minutos','depilacao-axilas-buco.jpg'),
+	(6,'Virilha Íntima',3,'Remoção com cera quente dos pelos da virilha e região do ânus.',45,'45 minutos a 1 hora','depilacao-virilha.jpg'),
+	(7,'Meia Perna',3,'Remoção dos pelos da coxa ou da canela com cera quente.',30,'30 minutos','depilacao-meiaperna.jpg'),
+	(8,'Perna Inteira',3,'Remoção dos pelos de toda a perna com cera quente. ',45,'45 minutos a 1 hora','depilacao-pernainteira.jpg'),
+	(9,'Completa',3,'Inclui a depilação com cera quente das axilas, buço, virilha, pernas e limpeza das sobrancellhas com pinça.',60,'1 a 2 horas','depilacao-completa.jpg');
 
 /*!40000 ALTER TABLE `servico` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
-# Dump da tabela voucher
+# Dump of table voucher
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `voucher`;
