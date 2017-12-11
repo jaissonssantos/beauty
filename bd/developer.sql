@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.6.35)
 # Database: labella
-# Generation Time: 2017-12-08 20:22:47 +0000
+# Generation Time: 2017-12-11 21:25:03 +0000
 # ************************************************************
 
 
@@ -27,6 +27,7 @@ DROP TABLE IF EXISTS `agenda`;
 
 CREATE TABLE `agenda` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `idcliente` int(11) unsigned DEFAULT NULL,
   `idartista` int(11) unsigned DEFAULT NULL,
   `idservico` int(11) DEFAULT NULL,
   `idvoucher` int(11) DEFAULT NULL,
@@ -37,9 +38,20 @@ CREATE TABLE `agenda` (
   `fim` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `idartista` (`idartista`),
-  CONSTRAINT `agenda_ibfk_1` FOREIGN KEY (`idartista`) REFERENCES `artista` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `idcliente` (`idcliente`),
+  CONSTRAINT `agenda_ibfk_1` FOREIGN KEY (`idartista`) REFERENCES `artista` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `agenda_ibfk_2` FOREIGN KEY (`idcliente`) REFERENCES `cliente` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `agenda` WRITE;
+/*!40000 ALTER TABLE `agenda` DISABLE KEYS */;
+
+INSERT INTO `agenda` (`id`, `idcliente`, `idartista`, `idservico`, `idvoucher`, `codigo`, `valor`, `status`, `inicio`, `fim`)
+VALUES
+	(1,1,1,1,NULL,'4676GDSFS',12.00,1,'2017-12-11 08:30:00','2017-12-11 09:00:00');
+
+/*!40000 ALTER TABLE `agenda` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table artista

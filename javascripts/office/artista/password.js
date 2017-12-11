@@ -3,6 +3,10 @@ $(document).ready(function(){
     //validate
     $('form#formMudarsenha').validate({
         rules: {
+            atual: { 
+                required: true,
+                minlength: 5
+            },
             senha: { 
                 required: true,
                 minlength: 5
@@ -13,6 +17,10 @@ $(document).ready(function(){
             }
         },
         messages: {
+            atual: { 
+                required: 'Preencha sua senha atual',
+                minlength: 'Vamos lá, qual é a sua senha atual?'
+            },
             senha: { 
                 required: 'Preencha sua senha',
                 minlength: 'Para sua segurança a senha deve ter no mínimo cinco caracteres'
@@ -46,6 +54,7 @@ $(document).ready(function(){
     $('button#salvarMudarsenha').livequery('click',function(event){
         if($("form#formMudarsenha").valid()){
             usuarios = {
+                atual: $('form#formMudarsenha input#atual').val(),
                 senha: $('form#formMudarsenha input#senha').val()
             };
 
@@ -63,6 +72,7 @@ $(document).ready(function(){
                 data: params,
                 success: function(response){
                     if(response.success){
+                        $('#errorModal').addClass('hidden');
                         $('#successModal').removeClass('hidden');
                         $('#successModal').find('.alert p').html(response.success);
                         $('form#formMudarsenha').addClass('hidden');

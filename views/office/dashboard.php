@@ -1,14 +1,13 @@
 <?php
-    // if (!isset(
-    //     $_SESSION['congresso_uid'],
-    //     $_SESSION['congresso_nome'],
-    //     $_SESSION['congresso_sobrenome'],
-    //     $_SESSION['congresso_cpf'],
-    //     $_SESSION['congresso_email'],
-    //     $_SESSION['congresso_gestor']
-    // )) {
-    //     header('Location: /login');
-    // }
+    if (!isset(
+        $_SESSION['labella_uid'],
+        $_SESSION['labella_nome'],
+        $_SESSION['labella_email'],
+        $_SESSION['labella_empresa'],
+        $_SESSION['labella_profissao']
+    )) {
+        header('Location: /login');
+    }
 ?>
 <!-- Bootstrap Core CSS -->
 <link href="assets/template/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -48,7 +47,7 @@
             <div class="col-lg-12">
                 <div class="calendar-box p-b-20">
                     <div id="calendar"></div>
-                    <div id="calendar-loading" class="text-center">
+                    <div id="calendar-loading" class="text-center hidden">
                         <img src="assets/images/common/loading.gif">
                         <p>Aguarde um pouco, estamos processando...</p>
                     </div>

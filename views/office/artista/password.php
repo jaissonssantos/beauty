@@ -18,6 +18,10 @@
 
     <form id="formMudarsenha">
         <div class="form-group">
+            <label for="atual" class="control-label">Senha atual:</label>
+            <input type="password" class="form-control" id="atual" name="atual"> 
+        </div>
+        <div class="form-group">
             <label for="senha" class="control-label">Nova senha:</label>
             <input type="password" class="form-control" id="senha" name="senha"> 
         </div>

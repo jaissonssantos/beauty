@@ -10,7 +10,8 @@ $response = new stdClass();
 try {
     if (!isset(
         $_SESSION['labella_uid'],
-        $params->senha
+        $params->senha,
+        $params->atual
     )) {
         throw new Exception('Verifique os dados preenchidos', 400);
     }
@@ -19,6 +20,26 @@ try {
 
     $params->senha = sha1(SALT.$params->senha);
     $id = $_SESSION['labella_uid'];
+
+     $stmt = $oConexao->prepare(
+        'SELECT count(id) total
+        FROM artista
+        WHERE 
+            id=?
+        AND
+            senha=?
+        AND
+            status=1'
+    );
+    $stmt->execute(array(
+        $id,
+        sha1(SALT.$params->atual)
+    ));
+    $results = $stmt->fetchObject();
+
+    if($results->total < 1){
+        throw new Exception('Sua senha não foi atualizada', 400);
+    }
 
     $stmt = $oConexao->prepare(
         'UPDATE artista 
