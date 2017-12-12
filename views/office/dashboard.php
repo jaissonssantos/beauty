@@ -23,6 +23,7 @@
 <!-- fullcalendar CSS -->
 <link href="assets/css/fullcalendar.min.css" rel="stylesheet">
 <link href="assets/css/scheduler.min.css" rel="stylesheet">
+<link href="assets/css/calendar.css" rel="stylesheet">
 
 <?php require_once 'views/template/header.php'; ?>
 <?php require_once 'views/template/left.php'; ?>
@@ -57,6 +58,29 @@
 
     </div><!-- end col -->
 </div><!-- /.row -->
+
+<div class="tooltip-calendar hidden">
+    <div class="modal-header ">
+        <button type="button" 
+            class="close tooltipClose" aria-hidden="true">×</button>
+    </div>
+    <div class="modal-body card">
+        <form id="tooltipCalendar" name="tooltipCalendar" class="form-horizontal">
+            
+            <button type="button" id="schedule" 
+                class="btn btn-sm btn-mark">
+                    <i class="fa fa-plus"></i> Adicionar agendamento
+            </button>
+
+            <p></p>
+
+            <button type="button" id="block" 
+                class="btn btn-sm btn-default">
+                    <i class="fa fa-lock"></i> Bloquear horário
+            </button>
+        </form>
+    </div>
+</div><!--  /.tooltip-calendar -->
 
 <?php require_once 'views/template/rigth.php'; ?>
 <?php require_once 'views/template/footer.php'; ?>

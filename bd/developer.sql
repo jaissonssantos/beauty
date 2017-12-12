@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.6.35)
 # Database: labella
-# Generation Time: 2017-12-11 21:25:03 +0000
+# Generation Time: 2017-12-12 21:32:42 +0000
 # ************************************************************
 
 
@@ -34,6 +34,7 @@ CREATE TABLE `agenda` (
   `codigo` varchar(80) DEFAULT NULL COMMENT 'codigo de pagamento da operadora',
   `valor` decimal(10,2) DEFAULT NULL COMMENT 'valor pago pelo cliente no ato do agendamento',
   `status` int(11) DEFAULT NULL COMMENT '1 - atendido/ 2 - agendado/ 3 - cancelado ',
+  `nota` varchar(200) DEFAULT NULL,
   `inicio` datetime DEFAULT NULL,
   `fim` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -46,9 +47,9 @@ CREATE TABLE `agenda` (
 LOCK TABLES `agenda` WRITE;
 /*!40000 ALTER TABLE `agenda` DISABLE KEYS */;
 
-INSERT INTO `agenda` (`id`, `idcliente`, `idartista`, `idservico`, `idvoucher`, `codigo`, `valor`, `status`, `inicio`, `fim`)
+INSERT INTO `agenda` (`id`, `idcliente`, `idartista`, `idservico`, `idvoucher`, `codigo`, `valor`, `status`, `nota`, `inicio`, `fim`)
 VALUES
-	(1,1,1,1,NULL,'4676GDSFS',12.00,1,'2017-12-11 08:30:00','2017-12-11 09:00:00');
+	(1,1,1,1,NULL,'4676GDSFS',12.00,1,NULL,'2017-12-11 08:30:00','2017-12-11 09:00:00');
 
 /*!40000 ALTER TABLE `agenda` ENABLE KEYS */;
 UNLOCK TABLES;

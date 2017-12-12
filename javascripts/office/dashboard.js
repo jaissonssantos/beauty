@@ -36,23 +36,21 @@ $(document).ready(function(){
             },
             select: function(start,end,event,view,resource) {
                 console.log(resource);
-                // console.log(view);
-                // $scope.tooltip(event);
+                tooltip(event);
                 // $scope.agendamento.start =  new Date(start);
                 // $scope.agendamento.end = new Date(end);
                 // $scope.agendamento.profissional = resource.id;
             },
-            // eventClick: function(event) {
-      //           console.log(event);
-      //       },
-      //       eventDrop: function(event, delta, revertFunc) {
-      //           console.log(event);
-      //       }
+            eventClick: function(event) {
+                console.log(event);
+            },
+            eventDrop: function(event, delta, revertFunc) {
+                console.log(event);
+            }
         });
     }
 
     function listArtista(){
-
         $('#calendar-loading').removeClass('hidden');
 
         //list
@@ -92,10 +90,27 @@ $(document).ready(function(){
         });
     }
 
-    //navegação abas
-    $('a.nav-link').livequery('click',function(event){
-        $('a.nav-link').removeClass('active');
-        $(this).addClass('active');
+    function tooltip(attributes){
+        $('.tooltip-calendar').removeClass('hidden');
+        $('.tooltip-calendar').css('top', attributes.clientY);
+        $('.tooltip-calendar').css('left', attributes.clientX);
+    }
+
+    $('button.tooltipClose').livequery('click',function(event){
+        $('.tooltip-calendar').addClass('hidden');
+    });
+
+    $('button#schedule').livequery('click',function(event){
+        var options = {
+            cache:false,
+            show: true,
+            keyboard: false,
+            backdrop: 'static'
+        }
+        $('.tooltip-calendar').addClass('hidden');
+        $("div#modal").modal(options);
+        $('div#modal .modal-content').load('views/office/agenda/add.php');
+        return false;
     });
 
     function onError(response) {

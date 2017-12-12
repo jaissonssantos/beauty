@@ -1,0 +1,73 @@
+#calendar{
+    margin: 10px 0 0 0;
+}
+#calendar .fc-toolbar.fc-header-toolbar{
+    margin: -10px -15px 0 -10px;
+    padding: 15px 15px 15px 10px;
+    background: #f5f5f5;
+}
+#calendar .fc-view-container{
+    background: #FFF;
+}
+.tooltip-calendar{
+    position: absolute;
+    z-index: 99;
+    width: 220px;
+}
+.tooltip-calendar .modal-header{
+    padding: 0;
+    min-height: 0;
+}
+.tooltip-calendar .modal-header .close{
+    padding: 0;
+    min-height: 0;
+    margin: 0;
+    position: absolute;
+    top: -20px;
+    padding: 0px 10px 2px 10px;
+    border-radius: 50%;
+    z-index: 99;
+    right: -15px;
+    opacity: 1;
+    background-color: rgb(243, 128, 115) !important;
+    border: rgb(243, 128, 115)!important;
+    -webkit-transition: 0.1s ease-in;
+    -moz-transition: 0.1s ease-in;
+    -o-transition: 0.1s ease-in;
+    transition: 0.1s ease-in;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    color: #fff !important;
+    line-height: inherit;
+    text-shadow: none;
+}
+.tooltip-calendar .modal-header .close:hover{
+    background-color: #FF553F!important;
+    border: #FF553F !important;
+    color: #fff !important;
+    -webkit-transition: 0.1s ease-in;
+    -moz-transition: 0.1s ease-in;
+    -o-transition: 0.1s ease-in;
+    transition: 0.1s ease-in;
+}
+.tooltip-calendar .btn{
+    width: 100%;
+}
+.btn-mark{
+    color: #fff;
+    background-color: rgb(243, 128, 115);
+    border: rgb(243, 128, 115);
+    -webkit-transition: 0.1s ease-in;
+    -moz-transition: 0.1s ease-in;
+    -o-transition: 0.1s ease-in;
+    transition: 0.1s ease-in;
+}
+.btn-mark:hover{
+    background-color: #FF553F;
+    border: #FF553F;
+    color: #fff;
+    -webkit-transition: 0.1s ease-in;
+    -moz-transition: 0.1s ease-in;
+    -o-transition: 0.1s ease-in;
+    transition: 0.1s ease-in;
+}
