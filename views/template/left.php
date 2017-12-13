@@ -25,7 +25,7 @@
                 <a href="<?=($_SESSION['congresso_gestor'] == 1 ? '/administrador/dashboard' : '/office/dashboard')?>" 
                     class="waves-effect">
                     <i class="linea-icon linea-basic fa-fw" data-icon="v"></i> 
-                    <span class="hide-menu"> Dashboard </span>
+                    <span class="hide-menu"> Meu painel </span>
                 </a>
             </li>
 

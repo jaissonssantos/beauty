@@ -24,10 +24,11 @@ try {
 
     $stmt = $oConexao->prepare(
         'SELECT 
-                ag.id,ag.inicio start,ag.fim end,serv.nome title,art.id resourceId
+                ag.id,ag.inicio start,ag.fim end,serv.nome description,art.id resourceId,cli.nome title,ag.status
             FROM agenda ag 
             LEFT JOIN servico serv ON(ag.idservico = serv.id)
             LEFT JOIN artista art ON(ag.idartista = art.id)
+            LEFT JOIN cliente cli ON(ag.idcliente = cli.id)
         WHERE art.idempresa=:idempresa
         LIMIT :offset,:limit'
     );

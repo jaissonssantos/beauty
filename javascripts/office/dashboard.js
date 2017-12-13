@@ -1,5 +1,6 @@
 //variable global
 var artistas, agendas = [];
+var params = {};
 
 $(document).ready(function(){
 
@@ -37,15 +38,48 @@ $(document).ready(function(){
             select: function(start,end,event,view,resource) {
                 console.log(resource);
                 tooltip(event);
-                // $scope.agendamento.start =  new Date(start);
-                // $scope.agendamento.end = new Date(end);
-                // $scope.agendamento.profissional = resource.id;
+
+                //params
+                params = {
+                    inicio: new Date(start),
+                    fim: new Date(end),
+                    artista: resource.id
+                }
             },
             eventClick: function(event) {
                 console.log(event);
             },
             eventDrop: function(event, delta, revertFunc) {
                 console.log(event);
+            },
+            eventAfterRender: function(event, element) {
+                switch(parseInt(event.status)){
+                    case 1:
+                        element.addClass('pendente-app');
+                    break;
+                    case 2:
+                        element.addClass('aprovado-app');
+                    break;
+                    case 3:
+                        element.addClass('concluido-app');
+                    break;
+                    case 4:
+                        element.addClass('naocompareceu-app');
+                    break;
+                    case 5:
+                        element.addClass('pendente-manual');
+                    break;
+                    case 6:
+                        element.addClass('concluido-manual');
+                    break;
+                    case 7:
+                        element.addClass('naocompareceu-manual');
+                    break;
+                    case 8:
+                        element.addClass('bloqueado');
+                    break;
+                }
+                element.find('.fc-title').after("<div class='fc-description'>"+event.description+"</div>")
             }
         });
     }

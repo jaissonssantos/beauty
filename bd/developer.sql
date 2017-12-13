@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.6.35)
 # Database: labella
-# Generation Time: 2017-12-12 21:32:42 +0000
+# Generation Time: 2017-12-13 22:14:17 +0000
 # ************************************************************
 
 
@@ -49,7 +49,14 @@ LOCK TABLES `agenda` WRITE;
 
 INSERT INTO `agenda` (`id`, `idcliente`, `idartista`, `idservico`, `idvoucher`, `codigo`, `valor`, `status`, `nota`, `inicio`, `fim`)
 VALUES
-	(1,1,1,1,NULL,'4676GDSFS',12.00,1,NULL,'2017-12-11 08:30:00','2017-12-11 09:00:00');
+	(1,1,1,1,NULL,'4676GDSFS',12.00,1,NULL,'2017-12-11 08:30:00','2017-12-11 09:00:00'),
+	(2,2,3,2,NULL,'4676GDSFS',12.00,2,NULL,'2017-12-11 08:00:00','2017-12-11 08:30:00'),
+	(3,3,4,3,NULL,'4676GDSFS',12.00,3,NULL,'2017-12-11 08:00:00','2017-12-11 09:00:00'),
+	(4,10,4,2,NULL,'4676GDSFS',12.00,4,NULL,'2017-12-11 11:00:00','2017-12-11 11:30:00'),
+	(5,7,2,2,NULL,'4676GDSFS',12.00,5,NULL,'2017-12-11 09:00:00','2017-12-11 09:30:00'),
+	(6,8,1,2,NULL,'4676GDSFS',12.00,6,NULL,'2017-12-11 10:00:00','2017-12-11 10:30:00'),
+	(7,9,1,3,NULL,'4676GDSFS',12.00,7,NULL,'2017-12-11 11:00:00','2017-12-11 12:00:00'),
+	(8,NULL,1,NULL,NULL,NULL,NULL,8,NULL,'2017-12-11 14:00:00','2017-12-11 18:00:00');
 
 /*!40000 ALTER TABLE `agenda` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -82,8 +89,9 @@ INSERT INTO `artista` (`id`, `idempresa`, `nome`, `email`, `senha`, `idprofissao
 VALUES
 	(1,1,'Sebastião Júnior','sebastiao.junior@gmail.com','a58aefc4f3465a8482a8fd96a40b54e8fcd14082',1,1,'2017-12-08 14:57:00','2017-12-08 14:57:00'),
 	(2,1,'Alan João','aloebn@gmail.com','a58aefc4f3465a8482a8fd96a40b54e8fcd14082',1,1,'2017-12-08 14:57:00','2017-12-08 14:57:00'),
-	(3,1,'Thesca Souza','thesca@gmail.com','a58aefc4f3465a8482a8fd96a40b54e8fcd14082',1,1,'2017-12-08 14:57:00','2017-12-08 14:57:00'),
-	(4,1,'Jaisson Santos','jaissonssantos@gmail.com','a58aefc4f3465a8482a8fd96a40b54e8fcd14082',2,1,'2017-12-08 14:57:00','2017-12-08 14:57:00');
+	(3,1,'Thesca Souza','thesca@gmail.com','a58aefc4f3465a8482a8fd96a40b54e8fcd14082',3,1,'2017-12-08 14:57:00','2017-12-08 14:57:00'),
+	(4,1,'Jaisson Santos','jaissonssantos@gmail.com','a58aefc4f3465a8482a8fd96a40b54e8fcd14082',2,1,'2017-12-08 14:57:00','2017-12-08 14:57:00'),
+	(5,1,'Barbara','barbara@gmail.com','a58aefc4f3465a8482a8fd96a40b54e8fcd14082',2,2,'2017-12-08 14:57:00','2017-12-08 14:57:00');
 
 /*!40000 ALTER TABLE `artista` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -9993,29 +10001,34 @@ CREATE TABLE `empresa_favorito` (
 
 
 
-# Dump of table empresa_servico
+# Dump of table artista_servico
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `empresa_servico`;
+DROP TABLE IF EXISTS `artista_servico`;
 
-CREATE TABLE `empresa_servico` (
+CREATE TABLE `artista_servico` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `idempresa` int(11) unsigned DEFAULT NULL,
-  `idservico` int(11) DEFAULT NULL,
+  `idartista` int(11) unsigned DEFAULT NULL,
+  `idservico` int(11) unsigned DEFAULT NULL,
   `valor` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `idempresa` (`idempresa`),
-  CONSTRAINT `empresa_servico_ibfk_1` FOREIGN KEY (`idempresa`) REFERENCES `empresa` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `idartista` (`idartista`),
+  KEY `idservico` (`idservico`),
+  CONSTRAINT `artista_servico_ibfk_1` FOREIGN KEY (`idempresa`) REFERENCES `empresa` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `artista_servico_ibfk_2` FOREIGN KEY (`idartista`) REFERENCES `artista` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `artista_servico_ibfk_3` FOREIGN KEY (`idservico`) REFERENCES `servico` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-LOCK TABLES `empresa_servico` WRITE;
-/*!40000 ALTER TABLE `empresa_servico` DISABLE KEYS */;
+LOCK TABLES `artista_servico` WRITE;
+/*!40000 ALTER TABLE `artista_servico` DISABLE KEYS */;
 
-INSERT INTO `empresa_servico` (`id`, `idempresa`, `idservico`, `valor`)
+INSERT INTO `artista_servico` (`id`, `idempresa`, `idartista`, `idservico`, `valor`)
 VALUES
-	(7,1,1,12.00);
+	(7,1,1,1,12.00);
 
-/*!40000 ALTER TABLE `empresa_servico` ENABLE KEYS */;
+/*!40000 ALTER TABLE `artista_servico` ENABLE KEYS */;
 UNLOCK TABLES;
 
 

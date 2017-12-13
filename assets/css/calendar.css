@@ -9,6 +9,82 @@
 #calendar .fc-view-container{
     background: #FFF;
 }
+#calendar .fc-resource-cell{
+    border-style: none;
+    border-width: 0;
+    background: #f5f5f5;
+    padding-bottom: 10px;
+    font-weight: inherit;
+}
+#calendar .fc-axis{
+    background: #f5f5f5;
+}
+#calendar .fc-minor {
+    border: none;
+}
+#calendar .fc-minor .fc-axis{
+    background: #f5f5f5;
+}
+#calendar .fc-time{
+    text-align: left;
+    margin-left: 10px;
+}
+#calendar .fc-title{
+    text-align: left;
+    padding-left: 10px;
+}
+#calendar .fc-description{
+    font-size: 12px;
+    font-weight: 100;
+    color: #555671;
+    text-align: left;
+    padding-left: 10px;
+}
+#calendar .pendente-app{
+    background: #feebb5;
+    border: none;
+    border-left: 2px solid #f3c13b;
+}
+#calendar .pendente-manual{
+    background: #fff;
+    border: 1px solid #ddd;
+    border-left: 2px solid #f3c13b;
+}
+#calendar .aprovado-app{
+    background: #c9e6cb;
+    border: none;
+    border-left: 2px solid #448749;
+}
+#calendar .aprovado-manual{
+    background: #fff;
+    border: 1px solid #ddd;
+    border-left: 2px solid #448749;
+}
+#calendar .concluido-app{
+    background: #c9e6cb;
+    border: none;
+    border-left: 2px solid #8cbe8f;
+}
+#calendar .concluido-manual{
+    background: #fff;
+    border: 1px solid #ddd;
+    border-left: 2px solid #8cbe8f;
+}
+#calendar .naocompareceu-app{
+    background: #fccfd3;
+    border: none;
+    border-left: 2px solid #da4d48;
+}
+#calendar .naocompareceu-manual{
+    background: #fff;
+    border: 1px solid #ddd;
+    border-left: 2px solid #da4d48;
+}
+#calendar .bloqueado{
+    background: #eeeeee;
+    border: none;
+    border-left: 2px solid #a5a5a5;
+}
 .tooltip-calendar{
     position: absolute;
     z-index: 99;
