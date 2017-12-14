@@ -1,6 +1,12 @@
 #calendar{
     margin: 10px 0 0 0;
 }
+#calendar .fc-slats table{
+    background: #FFF;
+}
+#calendar .fc-body .fc-widget-content{
+    /*border: 0;*/
+}
 #calendar .fc-toolbar.fc-header-toolbar{
     margin: -10px -15px 0 -10px;
     padding: 15px 15px 15px 10px;
@@ -84,6 +90,13 @@
     background: #eeeeee;
     border: none;
     border-left: 2px solid #a5a5a5;
+}
+#calendar .fc-content i.warning{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 1.5em;
+    color: #fec107;
 }
 .tooltip-calendar{
     position: absolute;

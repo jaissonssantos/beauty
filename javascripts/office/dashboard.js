@@ -13,7 +13,7 @@ $(document).ready(function(){
             defaultView: 'agendaDay',
             slotDuration: '00:15:00',
             // defaultDate: ($scope.aplicacao.ano+'-'+$scope.aplicacao.mes+'-'+$scope.aplicacao.dia),
-            defaultDate: '2017-12-11',
+            defaultDate: '2017-12-14',
             editable: true,
             eventLimit: true,
             selectable: true,
@@ -53,12 +53,15 @@ $(document).ready(function(){
                 console.log(event);
             },
             eventAfterRender: function(event, element) {
+                var icon = '';
                 switch(parseInt(event.status)){
                     case 1:
                         element.addClass('pendente-app');
+                        icon = 'icon-hourglass warning';
                     break;
                     case 2:
                         element.addClass('aprovado-app');
+                        icon = 'ti-thumb-up';
                     break;
                     case 3:
                         element.addClass('concluido-app');
@@ -68,6 +71,7 @@ $(document).ready(function(){
                     break;
                     case 5:
                         element.addClass('pendente-manual');
+                        icon = 'ti-timer';
                     break;
                     case 6:
                         element.addClass('concluido-manual');
@@ -80,6 +84,7 @@ $(document).ready(function(){
                     break;
                 }
                 element.find('.fc-title').after("<div class='fc-description'>"+event.description+"</div>")
+                element.find('.fc-title').after("<i class='"+icon+"'></i>")
             }
         });
     }
