@@ -24,6 +24,8 @@
 <link href="assets/css/fullcalendar.min.css" rel="stylesheet">
 <link href="assets/css/scheduler.min.css" rel="stylesheet">
 <link href="assets/css/calendar.css" rel="stylesheet">
+<!-- Autocomplete CSS -->
+<link href="assets/css/autocomplete.min.css" rel="stylesheet">
 
 <?php require_once 'views/template/header.php'; ?>
 <?php require_once 'views/template/left.php'; ?>

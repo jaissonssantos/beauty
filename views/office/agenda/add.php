@@ -72,8 +72,7 @@
                     <textarea id="nota" 
                           name="nota" 
                           class="form-control"
-                          rows="2">
-                    </textarea>
+                          rows="2"></textarea>
                 </div>
             </div>
         </div><!-- ./row-->
@@ -84,5 +83,6 @@
 </div>
 
 <!-- javascripts -->
+<script type="text/javascript" src="assets/javascript/jquery.autocomplete.min.js"></script>
 <script type="text/javascript" src="assets/javascript/jquery.validate.min.js"></script>
 <script type="text/javascript" src="javascripts/office/agenda/add.js"></script>

@@ -1,5 +1,25 @@
 $(document).ready(function(){
 
+    //autocomplete
+    $('#cliente').autocomplete({
+        serviceUrl: '/controller/office/cliente/search',
+        ajaxSettings: {
+            contentType : "application/x-www-form-urlencoded",
+            method: "POST"
+        },
+        onSelect: function (suggestion) {
+            alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
+        },
+        paramName: 'query',
+        transformResult: function(response) {
+            return {
+                suggestions: $.map(response.myData, function(dataItem) {
+                    return { value: dataItem.valueField, data: dataItem.dataField };
+                })
+            };
+        }
+    });
+
     // function checkSuccess(){
     //     //success
     //     if(getSession('success')){

@@ -6,7 +6,22 @@
     font-weight: inherit;
     text-transform: capitalize;
 }
-#calendar .fc-toolbar .fc-center .fc-prev-button, #calendar .fc-toolbar .fc-center .fc-next-button{
+#calendar .fc-toolbar .fc-left .fc-agendaDay-button, #calendar .fc-toolbar .fc-left .fc-agendaWeek-button{
+    background-color: #F5f5f5;
+    background-image: none;
+    color: #555671;
+    border: none;
+    text-shadow: none;
+    box-shadow: none;
+    padding: 0 16px;
+    height: 40px;
+    border-radius: inherit;
+}
+#calendar .fc-toolbar .fc-left .fc-state-active{
+    background-color: #FFF;
+    border-bottom: 2px solid #FF813F;
+}
+#calendar .fc-toolbar .fc-center .fc-prev-button, #calendar .fc-toolbar .fc-center .fc-next-button, #calendar .fc-toolbar .fc-center .fc-today-button{
     background-color: #F5f5f5;
     background-image: none;
     color: #FF813F;
@@ -17,7 +32,8 @@
 #calendar .fc-toolbar .fc-center .fc-prev-button:hover, #calendar .fc-toolbar .fc-center .fc-next-button:hover{
     background-color: #FFF;
 }
-#calendar .fc-toolbar .fc-center .fc-today-button.fc-state-disabled{
+#calendar .fc-toolbar .fc-center .fc-today-button.fc-state-disabled, #calendar .fc-toolbar .fc-center .fc-today-button{
+    color: #555671;
     border: none;
     background-color: transparent;
 }
@@ -35,12 +51,30 @@
     border-top-style: dashed;
 }
 
+/*week view*/
+#calendar .fc-agendaWeek-view .fc-time-grid .fc-slats .fc-minor td{
+    border-top-style: dashed;
+}
+#calendar .fc-agendaWeek-view .fc-head .fc-day-header{
+    color: #555671;
+    font-size: 13px;
+    font-weight: inherit;
+    text-transform: capitalize;
+}
+#calendar .fc-agendaWeek-view .fc-content i{
+    display: none;
+}
+
+
 /*reset calendar*/
-#calendar .fc-agendaDay-view .fc-head th.fc-widget-header{
+#calendar .fc-agendaDay-view .fc-head th.fc-widget-header, #calendar .fc-agendaWeek-view .fc-head th.fc-widget-header{
     background-color: transparent !important;
 }
 #calendar .fc-agendaDay-view .fc-time-grid .fc-bg td.fc-today{
     background-color: #FFF !important;
+}
+#calendar .fc-event .fc-resizer{
+    color: #555671;
 }
 
 #calendar .fc-widget-content{
@@ -63,6 +97,7 @@
     font-weight: inherit;
     padding-top: 10px;
     font-size: 13px;
+    color: #555671;
 }
 #calendar .fc-minor {
     border: none;

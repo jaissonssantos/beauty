@@ -287,6 +287,9 @@ i.btn-label{
 .modal-body fieldset span.bg-cracha{
   background: #feffd4;
 }
+.modal-body .easy-autocomplete{
+  width: 100% !important;
+}
 /*nav-tabs*/
 .nav-custom .nav-link.active, .nav-custom > li.active > a, .nav-custom > li.active > a:hover, .nav-custom > li.active > a:focus{
   background-color: #f5f5f5;
