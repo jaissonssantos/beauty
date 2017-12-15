@@ -1,12 +1,52 @@
 #calendar{
     margin: 10px 0 0 0;
 }
-#calendar .fc-slats table{
-    background: #FFF;
+#calendar .fc-toolbar .fc-center h2{
+    font-size: 14px;
+    font-weight: inherit;
+    text-transform: capitalize;
 }
-#calendar .fc-body .fc-widget-content{
-    /*border: 0;*/
+#calendar .fc-toolbar .fc-center .fc-prev-button, #calendar .fc-toolbar .fc-center .fc-next-button{
+    background-color: #F5f5f5;
+    background-image: none;
+    color: #FF813F;
+    border: 1px solid #e3e3e3;
+    text-shadow: none;
+    box-shadow: none;
 }
+#calendar .fc-toolbar .fc-center .fc-prev-button:hover, #calendar .fc-toolbar .fc-center .fc-next-button:hover{
+    background-color: #FFF;
+}
+#calendar .fc-toolbar .fc-center .fc-today-button.fc-state-disabled{
+    border: none;
+    background-color: transparent;
+}
+/*day view*/
+#calendar .fc-agendaDay-view .fc-unthemed .fc-today{
+    background-color: #ffffff;
+}
+#calendar .fc-agendaDay-view .fc-bg .fc-axis{
+    background-color: #fff;
+}
+#calendar .fc-agendaDay-view td.fc-time{
+    text-align: right;
+}
+#calendar .fc-agendaDay-view .fc-time-grid .fc-slats .fc-minor td{
+    border-top-style: dashed;
+}
+
+/*reset calendar*/
+#calendar .fc-agendaDay-view .fc-head th.fc-widget-header{
+    background-color: transparent !important;
+}
+#calendar .fc-agendaDay-view .fc-time-grid .fc-bg td.fc-today{
+    background-color: #FFF !important;
+}
+
+#calendar .fc-widget-content{
+    border-color: #eeeeee !important;
+}
+
 #calendar .fc-toolbar.fc-header-toolbar{
     margin: -10px -15px 0 -10px;
     padding: 15px 15px 15px 10px;
@@ -18,85 +58,102 @@
 #calendar .fc-resource-cell{
     border-style: none;
     border-width: 0;
-    background: #f5f5f5;
+    background: #FFF;
     padding-bottom: 10px;
     font-weight: inherit;
-}
-#calendar .fc-axis{
-    background: #f5f5f5;
+    padding-top: 10px;
+    font-size: 13px;
 }
 #calendar .fc-minor {
     border: none;
 }
-#calendar .fc-minor .fc-axis{
-    background: #f5f5f5;
-}
-#calendar .fc-time{
+#calendar .fc-content .fc-time{
     text-align: left;
     margin-left: 10px;
 }
-#calendar .fc-title{
+#calendar .fc-content .fc-title{
     text-align: left;
     padding-left: 10px;
 }
-#calendar .fc-description{
+#calendar .fc-content .fc-description{
     font-size: 12px;
     font-weight: 100;
     color: #555671;
     text-align: left;
     padding-left: 10px;
 }
-#calendar .pendente-app{
+#calendar .pending-app{
     background: #feebb5;
     border: none;
     border-left: 2px solid #f3c13b;
 }
-#calendar .pendente-manual{
+#calendar .pending-office{
     background: #fff;
     border: 1px solid #ddd;
     border-left: 2px solid #f3c13b;
 }
-#calendar .aprovado-app{
+#calendar .success-app{
     background: #c9e6cb;
     border: none;
     border-left: 2px solid #448749;
 }
-#calendar .aprovado-manual{
+#calendar .success-office{
     background: #fff;
     border: 1px solid #ddd;
     border-left: 2px solid #448749;
 }
-#calendar .concluido-app{
+#calendar .completed-app{
     background: #c9e6cb;
     border: none;
     border-left: 2px solid #8cbe8f;
 }
-#calendar .concluido-manual{
+#calendar .completed-office{
     background: #fff;
     border: 1px solid #ddd;
     border-left: 2px solid #8cbe8f;
 }
-#calendar .naocompareceu-app{
+#calendar .canceled-app{
     background: #fccfd3;
     border: none;
     border-left: 2px solid #da4d48;
 }
-#calendar .naocompareceu-manual{
+#calendar .canceled-office{
     background: #fff;
     border: 1px solid #ddd;
     border-left: 2px solid #da4d48;
 }
-#calendar .bloqueado{
+#calendar .blocked{
     background: #eeeeee;
     border: none;
     border-left: 2px solid #a5a5a5;
 }
-#calendar .fc-content i.warning{
+#calendar .fc-content i.pending{
     position: absolute;
     right: 5px;
     top: 5px;
     font-size: 1.5em;
-    color: #fec107;
+    color: #f3c13b;
+}
+#calendar .fc-content i.success{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 1.5em;
+    color: #448749;
+}
+#calendar .fc-content i.completed{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 1.5em;
+    color: #8cbe8f;
+}
+#calendar .fc-content i.canceled{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 1.5em;
+    color: #da4d48;
 }
 .tooltip-calendar{
     position: absolute;

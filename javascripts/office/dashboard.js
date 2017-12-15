@@ -1,6 +1,6 @@
 //variable global
 var artistas, agendas = [];
-var params = {};
+var app_date, params = {};
 
 $(document).ready(function(){
 
@@ -12,8 +12,7 @@ $(document).ready(function(){
             ignoreTimezone: true,
             defaultView: 'agendaDay',
             slotDuration: '00:15:00',
-            // defaultDate: ($scope.aplicacao.ano+'-'+$scope.aplicacao.mes+'-'+$scope.aplicacao.dia),
-            defaultDate: '2017-12-14',
+            defaultDate: (app_date.ano+'-'+app_date.mes+'-'+app_date.dia),
             editable: true,
             eventLimit: true,
             selectable: true,
@@ -56,31 +55,35 @@ $(document).ready(function(){
                 var icon = '';
                 switch(parseInt(event.status)){
                     case 1:
-                        element.addClass('pendente-app');
-                        icon = 'icon-hourglass warning';
+                        element.addClass('pending-app');
+                        icon = 'icon-hourglass pending';
                     break;
                     case 2:
-                        element.addClass('aprovado-app');
-                        icon = 'ti-thumb-up';
+                        element.addClass('success-app');
+                        icon = 'ti-thumb-up success';
                     break;
                     case 3:
-                        element.addClass('concluido-app');
+                        element.addClass('completed-app');
+                        icon = 'icon-check completed';
                     break;
                     case 4:
-                        element.addClass('naocompareceu-app');
+                        element.addClass('canceled-app');
+                        icon = 'ti-na canceled';
                     break;
                     case 5:
-                        element.addClass('pendente-manual');
-                        icon = 'ti-timer';
+                        element.addClass('pending-office');
+                        icon = 'icon-hourglass pending';
                     break;
                     case 6:
-                        element.addClass('concluido-manual');
+                        element.addClass('success-office');
+                        icon = 'ti-thumb-up success';
                     break;
                     case 7:
-                        element.addClass('naocompareceu-manual');
+                        element.addClass('canceled-office');
+                        icon = 'ti-na canceled'
                     break;
                     case 8:
-                        element.addClass('bloqueado');
+                        element.addClass('blocked');
                     break;
                 }
                 element.find('.fc-title').after("<div class='fc-description'>"+event.description+"</div>")
@@ -89,9 +92,25 @@ $(document).ready(function(){
         });
     }
 
-    function listArtista(){
+    function getDate(){
         $('#calendar-loading').removeClass('hidden');
+        //get
+        app.util.getjson({
+            url : "/controller/office/agenda/getdate",
+            method : 'POST',
+            contentType : "application/json",
+            success: function(response){
+                if(response.results){
+                    //set 
+                    app_date = response.results;
+                    listArtista();
+                }
+            },
+            error : onError
+        });
+    }
 
+    function listArtista(){
         //list
         app.util.getjson({
             url : "/controller/office/artista/list",
@@ -157,6 +176,6 @@ $(document).ready(function(){
     }
 
     //init
-    listArtista();
+    getDate();
 
 });

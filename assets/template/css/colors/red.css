@@ -317,3 +317,77 @@ i.btn-label{
   display: inline;
   margin-right: 10px;
 }
+
+/*subtitle calendar*/
+.r-panel-body ul li.subtitle-calendar .box{
+  padding: 12px 8px;
+  margin: 0 auto 10px;
+  border-radius: 3px;
+  position: relative;
+}
+.r-panel-body ul li.subtitle-calendar .box div{
+  text-align: left;
+  margin-left: 10px;
+  font-size: .85em;
+  white-space: nowrap;
+  padding: 0 1px;
+  color: #555671;
+}
+.r-panel-body ul li.subtitle-calendar .box i{
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  font-size: 1.2em;
+}
+.r-panel-body ul li.subtitle-calendar .pending-office{
+  background: #fff;
+  border: 1px solid #ddd;
+  border-left: 2px solid #f3c13b;
+}
+.r-panel-body ul li.subtitle-calendar .success-office{
+  background: #fff;
+  border: 1px solid #ddd;
+  border-left: 2px solid #8cbe8f;
+}
+.r-panel-body ul li.subtitle-calendar .completed-office{
+  background: #fff;
+  border: 1px solid #ddd;
+  border-left: 2px solid #8cbe8f;
+}
+.r-panel-body ul li.subtitle-calendar .canceled-office{
+  background: #fff;
+  border: 1px solid #ddd;
+  border-left: 2px solid #da4d48;
+}
+.r-panel-body ul li.subtitle-calendar .pending{
+  background: #feebb5;
+  border-left: 2px solid #f3c13b;
+}
+.r-panel-body ul li.subtitle-calendar .pending i, .r-panel-body ul li.subtitle-calendar .pending-office i{
+  color: #f3c13b;
+}
+.r-panel-body ul li.subtitle-calendar .success{
+  background: #c9e6cb;
+  border-left: 2px solid #8cbe8f;
+}
+.r-panel-body ul li.subtitle-calendar .success i, .r-panel-body ul li.subtitle-calendar .success-office i{
+  color: #8cbe8f;
+}
+.r-panel-body ul li.subtitle-calendar .completed{
+  background: #c9e6cb;
+  border-left: 2px solid #8cbe8f;
+}
+.r-panel-body ul li.subtitle-calendar .completed i, .r-panel-body ul li.subtitle-calendar .completed-office i{
+  color: #8cbe8f;
+}
+.r-panel-body ul li.subtitle-calendar .canceled{
+  background: #fccfd3;
+  border-left: 2px solid #da4d48;
+}
+.r-panel-body ul li.subtitle-calendar .canceled i, .r-panel-body ul li.subtitle-calendar .canceled-office i{
+  color: #da4d48;
+}
+.r-panel-body ul li.subtitle-calendar .blocked{
+  background: #eeeeee;
+  border-left: 2px solid #a5a5a5;
+}

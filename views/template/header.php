@@ -21,6 +21,13 @@
                     </b>
                 </a>
             </div>
+            <ul class="nav navbar-top-links navbar-right pull-right">
+                <li class="right-side-toggle"> 
+                    <a class="waves-effect waves-light" href="javascript:void(0)">
+                        <i class="ti-notepad"></i>
+                    </a>
+                </li>
+            </ul>
         </div>
         <!-- /.navbar-header -->
         <!-- /.navbar-top-links -->
