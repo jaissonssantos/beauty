@@ -1,24 +1,72 @@
 $(document).ready(function(){
 
     //autocomplete
-    $('#cliente').autocomplete({
-        serviceUrl: '/controller/office/cliente/search',
-        ajaxSettings: {
-            contentType : "application/x-www-form-urlencoded",
-            method: "POST"
+    $('#cliente').typeahead({
+        source: function(query,result){
+
+            $.ajax({
+                url: "/controller/office/cliente/search",            
+                dataType: 'json',
+                type: "POST",
+                data: JSON.stringify({
+                        query: query
+                    }
+                ),
+                beforeSend: function(data){
+                    $('.autocomplete .loading').removeClass('hidden');
+                },
+                success: function(data){
+                    $('.autocomplete .loading').addClass('hidden');
+                    result($.map(data,function(item){
+                        return item;
+                    }));
+                },
+                error: function(data){
+                    $('.autocomplete .loading').addClass('hidden');
+                    result($.map(data,function(item){
+                        return item.error;
+                    }));
+                }
+            });
         },
-        onSelect: function (suggestion) {
-            alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
+        minLength: 3,
+        items: 5,
+        // highlighter: function(item){
+        //     return (item.nome).toLocaleLowerCase();
+        // },
+        // matcher: function(item){
+        //     return item;
+        // },
+        updater: function(item){
+            var item = JSON.parse(item);
+            console.log(item);
+            return item;
         },
-        paramName: 'query',
-        transformResult: function(response) {
-            return {
-                suggestions: $.map(response.myData, function(dataItem) {
-                    return { value: dataItem.valueField, data: dataItem.dataField };
-                })
-            };
-        }
     });
+
+
+    // $('#cliente').autocomplete({
+    //     serviceUrl: '/controller/office/cliente/search',
+    //     ajaxSettings: {
+    //         contentType : "application/x-www-form-urlencoded",
+    //         method: "POST",
+    //         dataType: "json",
+    //         data: JSON.stringify({
+    //             query: 
+    //         })
+    //     },
+    //     onSelect: function (suggestion) {
+    //         alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
+    //     },
+    //     paramName: 'query',
+    //     transformResult: function(response) {
+    //         return {
+    //             suggestions: $.map(response.myData, function(dataItem) {
+    //                 return { value: dataItem.valueField, data: dataItem.dataField };
+    //             })
+    //         };
+    //     }
+    // });
 
     // function checkSuccess(){
     //     //success
@@ -131,54 +179,54 @@ $(document).ready(function(){
         $("#duracao").html(options);
     }
 
-    //edit
-    // $('button#salvar').livequery('click',function(event){
-    //     if($("form#formCliente").valid()){
-    //         clientes = {
-    //             id: $('#id').val(),
-    //             nome: $('#nome').val(),
-    //             sobrenome: $('#sobrenome').val(),
-    //             cracha: $('#cracha').val(),
-    //             telefone: $('#telefone').val(),
-    //             sexo: $('#sexo').val(),
-    //             pais: $('#pais').val(),
-    //             estado: $('#estado').val(),
-    //             cidade: $('#cidade').val()
-    //         };
+    //save
+    $('button#salvar').livequery('click',function(event){
+        // if($("form#formCliente").valid()){
+        //     clientes = {
+        //         id: $('#id').val(),
+        //         nome: $('#nome').val(),
+        //         sobrenome: $('#sobrenome').val(),
+        //         cracha: $('#cracha').val(),
+        //         telefone: $('#telefone').val(),
+        //         sexo: $('#sexo').val(),
+        //         pais: $('#pais').val(),
+        //         estado: $('#estado').val(),
+        //         cidade: $('#cidade').val()
+        //     };
 
-    //         //params
-    //         var params = {};
-    //         params = JSON.stringify(clientes);
+        //     //params
+        //     var params = {};
+        //     params = JSON.stringify(clientes);
 
-    //         $('button#salvar').html('Processando...');
-    //         $('button#salvar').prop("disabled",true);
-    //         $('button#cancelar').prop("disabled",true);
+        //     $('button#salvar').html('Processando...');
+        //     $('button#salvar').prop("disabled",true);
+        //     $('button#cancelar').prop("disabled",true);
 
-    //         app.util.getjson({
-    //             url : "/controller/office/cliente/update",
-    //             method : 'POST',
-    //             contentType : "application/json",
-    //             data: params,
-    //             success: function(response){
-    //                 if(response.success){
-    //                     setSession('success', response.success);
-    //                     window.location.href = "/office/cliente/edit/"+clientes.id;
-    //                 }
-    //             },
-    //             error : function(response){
-    //                 response = JSON.parse(response.responseText);
-    //                 $('#error').removeClass('hidden');
-    //                 $('#error').find('.alert p').html(response.error);
-    //                 $('button#salvar').html('Salvar');
-    //                 $('button#salvar').prop("disabled",false);
-    //                 $('button#cancelar').prop("disabled",false);
-    //             }
-    //         });
-    //     }else{
-    //         $("form#formCliente").valid();
-    //     }
-    //     return false;
-    // });
+            app.util.getjson({
+                url : "/controller/office/cliente/update",
+                method : 'POST',
+                contentType : "application/json",
+                data: JSON.stringify(params),
+                success: function(response){
+                    // if(response.success){
+                    //     setSession('success', response.success);
+                    //     window.location.href = "/office/cliente/edit/"+clientes.id;
+                    // }
+                },
+                error : function(response){
+                    // response = JSON.parse(response.responseText);
+                    // $('#error').removeClass('hidden');
+                    // $('#error').find('.alert p').html(response.error);
+                    // $('button#salvar').html('Salvar');
+                    // $('button#salvar').prop("disabled",false);
+                    // $('button#cancelar').prop("disabled",false);
+                }
+            });
+        // }else{
+        //     $("form#formCliente").valid();
+        // }
+        return false;
+    });
 
     //change duration
     $('select#duracao').change(function(){

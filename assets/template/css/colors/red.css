@@ -287,8 +287,16 @@ i.btn-label{
 .modal-body fieldset span.bg-cracha{
   background: #feffd4;
 }
-.modal-body .easy-autocomplete{
-  width: 100% !important;
+.modal-body .autocomplete{
+  position: relative;
+}
+.modal-body .autocomplete .loading{
+  position: absolute;
+  top: 30px;
+  right: 15px;
+}
+.modal-body .autocomplete .loading img{
+  width: 28px;
 }
 /*nav-tabs*/
 .nav-custom .nav-link.active, .nav-custom > li.active > a, .nav-custom > li.active > a:hover, .nav-custom > li.active > a:focus{

@@ -21,7 +21,7 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label for="atual" class="control-label">Cliente<abbr>*</abbr></label>
-                    <input type="text" class="form-control" id="cliente" name="cliente"> 
+                    <input type="text" class="form-control" id="cliente" name="cliente" autocomplete="off" data-provide="typeahead">
                 </div>
             </div>
             <div class="col-md-12">

@@ -12,10 +12,10 @@ try {
         throw new Exception('Verifique os dados preenchidos', 400);
     }
 
-    // $allowedSearch = array('cli.nome', 'cli.email');
-    // $field = isset($params->field) && in_array($params->field, $allowedSearch)
-    //                ? $params->field
-    //                : $allowedSearch[0];
+    $allowedSearch = array('cli.nome', 'cli.email');
+    $field = isset($params->field) && in_array($params->field, $allowedSearch)
+                   ? $params->field
+                   : $allowedSearch[0];
     $offset = isset($params->offset) && $params->offset > 0
                         ? $params->offset
                         : 0;
@@ -28,7 +28,7 @@ try {
 			cli.id,cli.nome,cli.email
 		 FROM cliente cli
 		 INNER JOIN empresa emp ON (cli.idempresa = emp.id)
-		 LIKE :query
+		 WHERE '.$field.' LIKE :query
 		 LIMIT :offset,:limit'
     );
     $query = '%'.$params->query.'%';
@@ -38,7 +38,7 @@ try {
     $stmt->execute();
 
     http_response_code(200);
-    $results = $stmt->fetchAll();
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
     if (!$results) {
         throw new Exception('Nenhum resultado encontrado', 404);
     }

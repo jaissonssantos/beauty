@@ -9,7 +9,7 @@ define('DB', 'mysql');
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'labella');
 define('DB_USER', 'root');
-define('DB_PASS', 'root');
+define('DB_PASS', '');
 define('SALT', '&$_100#*xh!9%0'); //nunca mudar(salt padrão)
 
 //definindo os dados de acesso ao banco de dados(PRODUÇÃO)
