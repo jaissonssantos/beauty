@@ -71,7 +71,7 @@
             
             <button type="button" id="schedule" 
                 class="btn btn-sm btn-mark">
-                    <i class="fa fa-plus"></i> Adicionar agendamento
+                    <i class="fa fa-plus"></i> Novo compromisso
             </button>
 
             <p></p>

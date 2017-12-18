@@ -1,20 +1,95 @@
 ul.typeahead{
-	margin:0px;
-	padding:0px;
+	margin: 1px 0 0 !important;
+	padding: 0px !important;
+	left: 0 !important;
 	width: 100%;
 }
-ul.typeahead.dropdown-menu li a {
-	padding: 10px !important;	
+ul.typeahead.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  list-style: none;
+  text-align: left;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  background-clip: padding-box;
+}
+ul.typeahead.dropdown-menu.pull-right {
+  right: 0;
+  left: auto;
+}
+ul.typeahead.dropdown-menu .divider {
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+ul.typeahead.dropdown-menu > li > a {
+  display: block;
+  padding: 10px;
+  clear: both;
+  font-weight: 100;
+  line-height: 1.42857143;
+  color: #333333;
+  white-space: nowrap;
+}
+ul.typeahead.dropdown-menu > li > a:hover,
+ul.typeahead.dropdown-menu > li > a:focus {
+  text-decoration: none;
+  color: #262626;
+  background-color: #f5f5f5;
+}
+ul.typeahead.dropdown-menu > .active > a,
+ul.typeahead.dropdown-menu > .active > a:hover,
+ul.typeahead.dropdown-menu > .active > a:focus {
+	padding: 10px;	
 	border-bottom:#CCC 1px solid;
-	color:#686868;
-	background: #FFF;
-}
-ul.typeahead.dropdown-menu li:last-child a { 
-	border-bottom:0px !important; 
-}
-.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {
-	text-decoration: none;
-	background-color: #FF813F;
-	outline: 0;
 	color:#FFF;
+	background: #FF813F;
+	text-decoration: none;
+
 }
+ul.typeahead.dropdown-menu > .disabled > a,
+ul.typeahead.dropdown-menu > .disabled > a:hover,
+ul.typeahead.dropdown-menu > .disabled > a:focus {
+  color: #777777;
+}
+ul.typeahead.dropdown-menu > .disabled > a:hover,
+ul.typeahead.dropdown-menu > .disabled > a:focus {
+  text-decoration: none;
+  background-color: transparent;
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  cursor: not-allowed;
+}
+.open > ul.typeahead.dropdown-menu {
+  display: block;
+}
+.pull-right > ul.typeahead.dropdown-menu {
+  right: 0;
+  left: auto;
+}
+.dropup ul.typeahead.dropdown-menu,
+.navbar-fixed-bottom .dropdown ul.typeahead.dropdown-menu {
+  top: auto;
+  bottom: 100%;
+  margin-bottom: 1px;
+}
+@media (min-width: 768px) {
+  .navbar-right ul.typeahead.dropdown-menu {
+    left: auto;
+    right: 0;
+  }
+}
+ul.typeahead.dropdown-menu a,
+ul.typeaheadul.typeahead.dropdown-menu a {
+  text-decoration: none;
+}
+

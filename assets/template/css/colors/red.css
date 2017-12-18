@@ -254,6 +254,9 @@ i.btn-label{
 .modal-body .input-group-addon{
   padding: 6px 24px 6px 12px;
 }
+.modal-body .form-group{
+  margin-bottom: 15px;
+}
 .modal-body fieldset legend{
   font-size: 13px;
   margin-bottom: 15px;
@@ -297,6 +300,23 @@ i.btn-label{
 }
 .modal-body .autocomplete .loading img{
   width: 28px;
+}
+.modal-body .autocomplete .btn-absolute{
+  position: absolute;
+  top: 35px;
+  right: 10px;
+}
+.modal-body .new-add{
+  padding: 12px;
+  border: 2px dashed #ddd;
+  width: 100%;  
+  text-align: center;
+}
+.modal-body .new-add a{
+  font-size: 13px;
+  font-weight: 300;
+  color: #448749;
+  text-transform: uppercase;
 }
 /*nav-tabs*/
 .nav-custom .nav-link.active, .nav-custom > li.active > a, .nav-custom > li.active > a:hover, .nav-custom > li.active > a:focus{
