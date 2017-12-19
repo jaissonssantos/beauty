@@ -138,6 +138,27 @@ $(document).ready(function(){
         $('input#data').val(moment(params.inicio).format('DD/MM/YYYY'));
         $('input#hora').val(moment(params.inicio).format("HH:mm"));
         $('span#finaliza').html(moment(params.fim).format("HH[h]mm[m]"));
+
+        //servicos
+        var param = {
+            id: params.artista
+        };
+        param = JSON.stringify(param);
+        var options = '<option value="" disabled selected>Selecione</option>';
+        $("#servico").html(options);
+        app.util.getjson({
+            url : "/controller/office/servico/list_artiste",
+            method : 'POST',
+            contentType : "application/json",
+            data: param,
+            success: function(response){
+                for (var i=0;i<response.results.length;i++) {
+                    options += '<option value="'+response.results[i].id+'" data-value="'+response.results[i].valor+'">'+ response.results[i].nome+'</option>';
+                }
+                $("#servico").html(options);
+            },
+            error : onError
+        });
     }
 
     function loadDuracao(){
@@ -219,6 +240,12 @@ $(document).ready(function(){
         //clear client params
         params.cliente = undefined;
         return false;
+    });
+
+    //change service
+    $('select#servico').change(function(){
+        var time = new Date((params.inicio.getTime()+($(this).val()*60*1000)));
+        $('span#finaliza').html(moment(time).format("HH[h]mm[m]"));
     });
 
     //change duration

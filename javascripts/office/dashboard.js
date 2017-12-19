@@ -167,6 +167,9 @@ $(document).ready(function(){
         }
         $('.tooltip-calendar').addClass('hidden');
         $("div#modal").modal(options);
+        //modal-lg
+        // $('div#modal .modal-dialog').addClass('modal-lg');
+
         $('div#modal .modal-content').load('views/office/agenda/add.php');
         return false;
     });

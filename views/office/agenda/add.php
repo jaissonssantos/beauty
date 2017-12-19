@@ -41,36 +41,44 @@
                 <div class="well">
                     <div class="row">
                     
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="servico" class="control-label">Serviço<abbr>*</abbr></label>
-                            <input type="text" class="form-control" id="servico" name="servico" disabled value="Pés"> 
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="servico" class="control-label">Serviço<abbr>*</abbr></label>
+                                <select id="servico" name="servico" class="form-control">
+                                    <option>Selecione</option>
+                                </select> 
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="hora" class="control-label">Horário</label>
-                            <input type="text" class="form-control" id="hora" name="hora" disabled> 
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="hora" class="control-label">Horário</label>
+                                <input type="text" class="form-control" id="hora" name="hora" disabled> 
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="duracao" class="control-label">Duração<abbr>*</abbr></label>
-                            <select id="duracao" name="duracao" class="form-control">
-                                <option>0h15min</option>
-                            </select>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="duracao" class="control-label">Duração<abbr>*</abbr></label>
+                                <select id="duracao" name="duracao" class="form-control">
+                                    <option>0h00min</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="preco" class="control-label">Preço<abbr>*</abbr></label>
+                                <input type="text" class="form-control" id="preco" name="preco" disabled>
+                            </div>
+                        </div>
 
-                    <div class="col-md-9">
-                        <div class="form-group">
-                          <small>** Este serviço finaliza às <span id="finaliza"></span></small>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                              <small>** Este serviço finaliza às <span id="finaliza"></span></small>
+                            </div>
                         </div>
-                    </div>
 
-                    </div>
+                    </div><!-- ./row -->
                 </div>
-            </div><!-- ./ -->
+            </div>
 
             <div id="note" class="col-md-12 hidden">
                 <div class="form-group">
@@ -95,9 +103,7 @@
     </form>
 </div>
 <div class="modal-footer">
-    <div class="col-md-3 text-right">
-        <a href="javascript:;" id="action-note">Adicionar nota</a>
-    </div>
+    <button type="button" id="action-note" class="btn btn-sm btn-default pull-left">+ Nota</button>
     <button type="button" id="salvar" class="btn btn-sm btn-success">Salvar</button>
 </div>
 
