@@ -1,5 +1,13 @@
 $(document).ready(function(){
 
+    //clockpicker
+    $('#hora').clockpicker({
+        placement: 'bottom', 
+        align: 'left',
+        autoclose: true, 
+        'default': 'now'
+    });
+
     //autocomplete
     $('#cliente').typeahead({
         source: function(query,process){
@@ -17,9 +25,11 @@ $(document).ready(function(){
                 ),
                 beforeSend: function(data){
                     $('.autocomplete .loading').removeClass('hidden');
+                    $('a#novo-cliente').addClass('hidden');
                 },
                 success: function(data){
                     $('.autocomplete .loading').addClass('hidden');
+                    $('a#novo-cliente').removeClass('hidden');
                     $.each(data, function (i, client) {
                         map[client.nome] = client;
                         clients.push(client.nome);
@@ -181,6 +191,68 @@ $(document).ready(function(){
         $("#duracao").html(options);
     }
 
+
+    //change client
+    $('a#alterar-cliente').livequery('click',function(event){
+        $(this).addClass('hidden');
+        $('a#novo-cliente').removeClass('hidden');
+        $('input#cliente').prop("disabled",false);
+        $('input#cliente').val('');
+        $('input#cliente').focus();
+        //clear client params
+        params.cliente = undefined;
+        return false;
+    });
+
+    //change service
+    $('select#servico').change(function(){
+        var val = $(this).find(':selected').attr('data-value');
+        $(this).parents('div#reserva').find('span.money').html(floatToMoney(val,'R$'));
+    });
+
+    //change duration
+    $('select#duracao').change(function(){
+        var time = new Date((params.inicio.getTime()+($(this).val()*60*1000)));
+        $('span#finaliza').html(moment(time).format("HH[h]mm[m]"));
+    });
+
+    //note
+    $('button#action-note').livequery('click',function(event){
+        if($('div#note').hasClass('hidden')){
+            $(this).html('- Nota');
+            $('div#note').removeClass('hidden', 1000, "slow");
+        }else{
+            $(this).html('+ Nota');
+            $('div#note').addClass('hidden', 1000, "slow");
+        }
+        return false;
+    });
+
+    //add reserve
+    $('a#add').livequery('click',function(event){
+        var count = $('div#reserva').length;
+        var reserva = $('div#reserva:first').clone();
+        $('#reservas').append(reserva);
+        var item = $('div#reserva:last');
+        item.find('button#excluir').removeClass('hidden');
+        item.find('input#hora').clockpicker({
+            placement: 'bottom', 
+            align: 'left',
+            autoclose: true, 
+            'default': 'now'
+        });;
+        $(this).parents('.row').addClass('hidden');
+        return false;
+    });
+    
+    //remove reserve
+    $('button#excluir').livequery('click',function(event){
+        var item = $(this).parents('#reserva');
+        item.remove();
+        $('a#add').parents('.row').removeClass('hidden');
+        return false;
+    });
+
     //save
     $('button#salvar').livequery('click',function(event){
         // if($("form#formCliente").valid()){
@@ -227,42 +299,6 @@ $(document).ready(function(){
         // }else{
         //     $("form#formCliente").valid();
         // }
-        return false;
-    });
-
-    //change client
-    $('a#alterar-cliente').livequery('click',function(event){
-        $(this).addClass('hidden');
-        $('a#novo-cliente').removeClass('hidden');
-        $('input#cliente').prop("disabled",false);
-        $('input#cliente').val('');
-        $('input#cliente').focus();
-        //clear client params
-        params.cliente = undefined;
-        return false;
-    });
-
-    //change service
-    $('select#servico').change(function(){
-        var time = new Date((params.inicio.getTime()+($(this).val()*60*1000)));
-        $('span#finaliza').html(moment(time).format("HH[h]mm[m]"));
-    });
-
-    //change duration
-    $('select#duracao').change(function(){
-        var time = new Date((params.inicio.getTime()+($(this).val()*60*1000)));
-        $('span#finaliza').html(moment(time).format("HH[h]mm[m]"));
-    });
-
-    //note
-    $('a#action-note').livequery('click',function(event){
-        if($('div#note').hasClass('hidden')){
-            $(this).html('Ocultar nota');
-            $('div#note').removeClass('hidden', 1000, "slow");
-        }else{
-            $(this).html('Adicionar nota');
-            $('div#note').addClass('hidden', 1000, "slow");
-        }
         return false;
     });
 

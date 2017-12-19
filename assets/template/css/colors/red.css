@@ -240,6 +240,9 @@ i.btn-label{
 .m-t-25 {
     margin-top: 25px !important;
 }
+.popover{
+  z-index: 1111;
+}
 .modal-backdrop.in{
   height: 100%;
   width: 100%;
@@ -256,6 +259,63 @@ i.btn-label{
 }
 .modal-body .form-group{
   margin-bottom: 15px;
+}
+.modal-body label.control-label{
+  font-size: 13px;
+  font-weight: 500;
+}
+.modal-body label.control-label abbr {
+    margin-left: 2px;
+    margin-right: 2px;
+    color: #F44317
+}
+.modal-body small{
+    opacity: 0.5;
+    position: absolute;
+    bottom: -5px;
+    left: 10px;
+}
+.modal-body .square{
+  display: inline-grid;
+  width: 100%;
+}
+.modal-body .card{
+  border: 1px solid rgba(12, 12, 12, 0.02);
+  border-radius: 2px;
+  width: 100%;
+  padding: 6px;
+  display: block;
+  margin-bottom: 15px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.25);
+}
+.modal-body .card hr{
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.modal-body .card .price{
+  margin-bottom: 15px;
+}
+.modal-body .card .price .title{
+  opacity: 0.5;
+}
+.modal-body .card .price .money{
+  margin-left: 5px;
+}
+.modal-body .form-group .form-control, .modal-body .form-group select.form-control {
+    border: 1px solid rgba(12, 12, 12, 0.12);
+    border-top: 1px solid #c2c2c2;
+    height: 32px;
+    padding: 8px 12px;
+    line-height: 1.42857143;
+    font-size: 13px;
+    border-radius: 0;
+}
+.modal-body .form-control[disabled] {
+    background-color: #eee;
+    opacity: 1
+}
+.modal-body .form-group textarea {
+    height: auto !important
 }
 .modal-body fieldset legend{
   font-size: 13px;
@@ -299,12 +359,13 @@ i.btn-label{
   right: 15px;
 }
 .modal-body .autocomplete .loading img{
-  width: 28px;
+  width: 18px;
 }
 .modal-body .autocomplete .btn-absolute{
   position: absolute;
-  top: 35px;
+  top: 32px;
   right: 10px;
+  font-size: 12px;
 }
 .modal-body .new-add{
   padding: 12px;
@@ -317,6 +378,9 @@ i.btn-label{
   font-weight: 300;
   color: #448749;
   text-transform: uppercase;
+}
+.modal-footer{
+  display: block;
 }
 /*nav-tabs*/
 .nav-custom .nav-link.active, .nav-custom > li.active > a, .nav-custom > li.active > a:hover, .nav-custom > li.active > a:focus{

@@ -16,6 +16,8 @@
 <link href="assets/template/css/animate.css" rel="stylesheet">
 <!-- Menu CSS -->
 <link href="assets/template/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+<!-- Page plugins css -->
+<link href="assets/template/plugins/bower_components/clockpicker/dist/jquery-clockpicker.min.css" rel="stylesheet">
 <!-- Custom CSS -->
 <link href="assets/template/css/style.min.css" rel="stylesheet">
 <!-- color CSS -->
@@ -90,6 +92,10 @@
 <!-- javascripts -->
 <script type="text/javascript" src="javascripts/office/dashboard.js"></script>
 <script type="text/javascript" src="javascripts/office/global.js"></script>
+<script type="text/javascript" src="javascripts/functions.js"></script>
+
+<!-- Clock Plugin JavaScript -->
+<script src="assets/template/plugins/bower_components/clockpicker/dist/jquery-clockpicker.min.js"></script>
 
 <!-- Javascript Fullcalendar -->
 <script type="text/javascript" src="assets/javascript/moment.min.js"></script>

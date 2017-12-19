@@ -39,6 +39,7 @@ ul.typeahead.dropdown-menu > li > a {
   line-height: 1.42857143;
   color: #333333;
   white-space: nowrap;
+  font-size: 12px;
 }
 ul.typeahead.dropdown-menu > li > a:hover,
 ul.typeahead.dropdown-menu > li > a:focus {
