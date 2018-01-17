@@ -56,7 +56,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="hora" class="control-label">Horário<abbr>*</abbr></label>
-                                    <input type="text" class="form-control" id="hora" name="hora[]"> 
+                                    <select class="form-control" id="hora" name="hora[]"></select>
                                     <small>Finaliza às <span id="finaliza"></span></small>
                                 </div>
                             </div>

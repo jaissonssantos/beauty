@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.6.35)
 # Database: labella
-# Generation Time: 2017-12-18 22:25:06 +0000
+# Generation Time: 2018-01-17 21:55:42 +0000
 # ************************************************************
 
 
@@ -49,14 +49,14 @@ LOCK TABLES `agenda` WRITE;
 
 INSERT INTO `agenda` (`id`, `idcliente`, `idartista`, `idservico`, `idvoucher`, `codigo`, `valor`, `status`, `nota`, `inicio`, `fim`)
 VALUES
-	(1,1,1,1,NULL,'4676GDSFS',12.00,1,NULL,'2017-12-18 08:30:00','2017-12-18 09:00:00'),
-	(2,2,3,2,NULL,'4676GDSFS',12.00,2,NULL,'2017-12-18 08:00:00','2017-12-18 08:30:00'),
-	(3,3,4,3,NULL,'4676GDSFS',12.00,3,NULL,'2017-12-18 08:00:00','2017-12-18 09:00:00'),
+	(1,1,1,1,NULL,'4676GDSFS',12.00,1,NULL,'2018-01-02 08:30:00','2018-01-02 09:00:00'),
+	(2,2,3,2,NULL,'4676GDSFS',12.00,2,NULL,'2018-01-02 08:00:00','2018-01-02 08:30:00'),
+	(3,3,4,3,NULL,'4676GDSFS',12.00,3,NULL,'2018-01-02 08:00:00','2018-01-02 09:00:00'),
 	(4,10,4,2,NULL,'4676GDSFS',12.00,4,NULL,'2017-12-15 11:00:00','2017-12-15 11:30:00'),
 	(5,7,2,2,NULL,'4676GDSFS',12.00,5,NULL,'2017-12-15 09:00:00','2017-12-15 09:30:00'),
 	(6,8,1,2,NULL,'4676GDSFS',12.00,6,NULL,'2017-12-15 10:00:00','2017-12-15 10:30:00'),
 	(7,9,1,3,NULL,'4676GDSFS',12.00,7,NULL,'2017-12-15 11:00:00','2017-12-15 12:00:00'),
-	(8,NULL,1,NULL,NULL,NULL,NULL,8,NULL,'2017-12-15 14:00:00','2017-12-15 18:00:00');
+	(8,NULL,1,NULL,NULL,NULL,NULL,8,NULL,'2018-01-02 14:00:00','2018-01-02 18:00:00');
 
 /*!40000 ALTER TABLE `agenda` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -113,6 +113,19 @@ CREATE TABLE `artista_atendimento` (
   CONSTRAINT `artista_atendimento_ibfk_1` FOREIGN KEY (`idartista`) REFERENCES `artista` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `artista_atendimento` WRITE;
+/*!40000 ALTER TABLE `artista_atendimento` DISABLE KEYS */;
+
+INSERT INTO `artista_atendimento` (`id`, `idartista`, `dia`, `inicio`, `fim`)
+VALUES
+	(1,1,2,'08:00:00','18:00:00'),
+	(2,1,3,'08:00:00','18:00:00'),
+	(3,1,4,'08:00:00','18:00:00'),
+	(4,1,5,'08:00:00','18:00:00'),
+	(5,1,6,'08:00:00','18:00:00');
+
+/*!40000 ALTER TABLE `artista_atendimento` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table artista_servico
@@ -140,7 +153,9 @@ LOCK TABLES `artista_servico` WRITE;
 
 INSERT INTO `artista_servico` (`id`, `idempresa`, `idartista`, `idservico`, `valor`)
 VALUES
-	(7,1,1,1,12.00);
+	(7,1,1,1,12.00),
+	(8,1,2,1,12.00),
+	(9,1,3,1,12.00);
 
 /*!40000 ALTER TABLE `artista_servico` ENABLE KEYS */;
 UNLOCK TABLES;
