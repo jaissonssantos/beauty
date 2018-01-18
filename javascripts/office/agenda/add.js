@@ -209,10 +209,10 @@ $(document).ready(function(){
         var id = $(this).find(':selected').attr('value');
         var val = $(this).find(':selected').attr('data-value');
         var time = $(this).find(':selected').attr('data-foo');
-        $(this).parents('div#reserva').find('#duracao').val(time);
-        // $('span#finaliza').html(moment(time).format("HH[h]mm[m]"));
-        $(this).parents('div#reserva').find('span.money').html(floatToMoney(val,'R$'));
         var item = $(this).parents('div#reserva');
+        item.find('#duracao').val(time);
+        item.find('span#finaliza').html(moment(params.inicio).add(time,'minutes').format("HH[h]mm[m]"));
+        item.find('span.money').html(floatToMoney(val,'R$'));
         //horarios disponivel
         var param = {
             data: moment(params.inicio).format('DD/MM/YYYY'),
