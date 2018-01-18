@@ -67,6 +67,36 @@ function calculatortimestamp($time) {
   return $result;
 } 
 
+function diasemana($data){  // Traz o dia da semana para qualquer data informada
+  $tmp = explode("-", $data);
+
+  $diasemana = date("w", mktime(0,0,0,$tmp[1],$tmp[2],$tmp[0]) );
+  switch($diasemana){
+    case "0":
+      $diasemana = 1;//"Domingo";
+      break;
+    case"1":
+      $diasemana = 2;//"Segunda-Feira";
+      break;
+    case"2":
+      $diasemana = 3;//"Terça-Feira";
+      break;
+    case"3":
+      $diasemana = 4;//"Quarta-Feira";
+      break;
+    case"4":
+      $diasemana = 5;//"Quinta-Feira";
+    break;
+    case"5":
+      $diasemana = 6;//"---ta-Feira";
+    break;
+    case"6":
+      $diasemana = 7;//"Sábado";
+      break;
+  }
+  return $diasemana;
+}
+
 function formata_data($data)
 {
     if ($data == '') {
@@ -163,6 +193,43 @@ function getDiaSemana($dia, $completo = 0)
     } else {
         return $r;
     }
+}
+
+function h2m($hora) {
+  $tmp = explode(":", $hora);
+  return ($tmp[1]+($tmp[0]*60));
+}
+
+function m2h($mins) {
+    // Se os minutos estiverem negativos
+    if ($mins < 0)
+        $min = abs($mins);
+    else
+        $min = $mins;
+
+    // Arredonda a hora
+    $h = floor($min / 60);
+    $m = ($min - ($h * 60)) / 100;
+    $horas = $h + $m;
+
+    // Matemática da quinta série
+    // Detalhe: Aqui também pode se usar o abs()
+    if ($mins < 0)
+        $horas *= -1;
+
+    // Separa a hora dos minutos
+    $sep = explode('.', $horas);
+    $h = $sep[0];
+    if (empty($sep[1]))
+        $sep[1] = 00;
+
+    $m = $sep[1];
+
+    // Aqui um pequeno artifício pra colocar um zero no final
+    if (strlen($m) < 2)
+        $m = $m . 0;
+
+    return sprintf('%02d:%02d', $h, $m);
 }
 
 /**

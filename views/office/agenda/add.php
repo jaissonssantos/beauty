@@ -81,6 +81,12 @@
                             </div>
                         </div>
                         <div class="col-md-8">
+                            <div id="ps" class="ps hidden">
+                                <p class="text-danger text-right">*** Atenderá fora do horário de atendimento</p>
+                            </div>
+                            <div class="square-pre-loading pull-right hidden">
+                                <img src="assets/images/common/loading.gif">
+                            </div>
                             <button type="button" id="excluir" 
                                 class="btn btn-sm btn-danger pull-right hidden">
                                 Excluir       

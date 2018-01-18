@@ -29,7 +29,7 @@ try {
 
     $stmt = $oConexao->prepare(
         'SELECT
-            sev.id,sev.nome,art.valor
+            sev.id,sev.nome,sev.duracao,art.valor
         FROM servico sev
         INNER JOIN artista_servico art ON(sev.id = art.idservico)
         WHERE art.idempresa=:idempresa '.$field.'

@@ -163,7 +163,7 @@ $(document).ready(function(){
             data: param,
             success: function(response){
                 for (var i=0;i<response.results.length;i++) {
-                    options += '<option value="'+response.results[i].id+'" data-value="'+response.results[i].valor+'">'+ response.results[i].nome+'</option>';
+                    options += '<option value="'+response.results[i].id+'" data-value="'+response.results[i].valor+'" data-foo="'+response.results[i].duracao+'">'+ response.results[i].nome+'</option>';
                 }
                 $("#servico").html(options);
             },
@@ -206,8 +206,52 @@ $(document).ready(function(){
 
     //change service
     $('select#servico').change(function(){
+        var id = $(this).find(':selected').attr('value');
         var val = $(this).find(':selected').attr('data-value');
+        var time = $(this).find(':selected').attr('data-foo');
+        $(this).parents('div#reserva').find('#duracao').val(time);
+        // $('span#finaliza').html(moment(time).format("HH[h]mm[m]"));
         $(this).parents('div#reserva').find('span.money').html(floatToMoney(val,'R$'));
+        var item = $(this).parents('div#reserva');
+        //horarios disponivel
+        var param = {
+            data: moment(params.inicio).format('DD/MM/YYYY'),
+            artista: params.artista,
+            servico: id
+        };
+        param = JSON.stringify(param);
+        var options = '<option value="" disabled selected>Selecione</option>';
+        item.find('#hora').html(options);
+        app.util.getjson({
+            url : "/controller/office/agenda/listoftimes",
+            method : 'POST',
+            contentType : "application/json",
+            data: param,
+            success: function(response){
+                var count_time = 0;
+                for (var i=0;i<response.length;i++) {
+                    if(moment(params.inicio).format("HH:mm") == response[i]){
+                        options += '<option value="'+response[i]+'" selected>'+ response[i]+'</option>';
+                        count_time++;
+                    }else{
+                        options += '<option value="'+response[i]+'">'+ response[i]+'</option>';
+                    }
+                }
+                if(!count_time)
+                    item.find('#ps').removeClass('hidden');
+
+                console.log(count_time);
+                item.find('#hora').html(options);
+            },
+            error : onError
+        });
+    });
+
+    //change time
+    $('select#hora').change(function(){
+        var time = $(this).find(':selected').attr('value');
+        var item = $(this).parents('div#reserva');
+        item.find('#ps').addClass('hidden');
     });
 
     //change duration
@@ -231,17 +275,13 @@ $(document).ready(function(){
     //add reserve
     $('a#add').livequery('click',function(event){
         var count = $('div#reserva').length;
-        var reserva = $('div#reserva:first').clone();
-        $('#reservas').append(reserva);
-        var item = $('div#reserva:last');
-        item.find('button#excluir').removeClass('hidden');
-        item.find('input#hora').clockpicker({
-            placement: 'bottom', 
-            align: 'left',
-            autoclose: true, 
-            'default': 'now'
-        });;
-        $(this).parents('.row').addClass('hidden');
+        if(count <= 1){
+            var reserva = $('div#reserva:first').clone();
+            $('#reservas').append(reserva);
+            var item = $('div#reserva:last');
+            item.find('button#excluir').removeClass('hidden');
+            $(this).parents('.row').addClass('hidden');
+        }
         return false;
     });
     
