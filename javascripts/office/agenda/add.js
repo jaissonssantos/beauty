@@ -231,16 +231,16 @@ $(document).ready(function(){
                 var count_time = 0;
                 for (var i=0;i<response.length;i++) {
                     if(moment(params.inicio).format("HH:mm") == response[i]){
-                        options += '<option value="'+response[i]+'" selected>'+ response[i]+'</option>';
+                        options += '<option value="'+response[i]+'" selected>'+response[i]+'</option>';
                         count_time++;
                     }else{
-                        options += '<option value="'+response[i]+'">'+ response[i]+'</option>';
+                        options += '<option value="'+response[i]+'">'+response[i]+'</option>';
                     }
                 }
-                if(!count_time)
-                    item.find('#ps').removeClass('hidden');
-
                 console.log(count_time);
+                if(count_time == 0){
+                    options += '<option value="'+moment(params.inicio).format("HH:mm")+'" selected>'+moment(params.inicio).format("HH:mm")+'</option>';
+                }
                 item.find('#hora').html(options);
             },
             error : onError
