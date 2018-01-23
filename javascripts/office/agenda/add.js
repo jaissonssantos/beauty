@@ -237,11 +237,12 @@ $(document).ready(function(){
                         options += '<option value="'+response[i]+'">'+response[i]+'</option>';
                     }
                 }
-                console.log(count_time);
-                if(count_time == 0){
-                    options += '<option value="'+moment(params.inicio).format("HH:mm")+'" selected>'+moment(params.inicio).format("HH:mm")+'</option>';
-                }
                 item.find('#hora').html(options);
+                if(count_time == 0){
+                    var option = '<option value="'+moment(params.inicio).format("HH:mm")+'" selected>'+moment(params.inicio).format("HH:mm")+'</option>';
+                    item.find('#hora').find('option').eq(1).before(option);
+                }
+                
             },
             error : onError
         });
