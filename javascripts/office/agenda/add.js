@@ -228,13 +228,14 @@ $(document).ready(function(){
             contentType : "application/json",
             data: param,
             success: function(response){
+                console.log(response.length);
                 var count_time = 0;
-                for (var i=0;i<response.length;i++) {
-                    if(moment(params.inicio).format("HH:mm") == response[i]){
-                        options += '<option value="'+response[i]+'" selected>'+response[i]+'</option>';
+                for (var i=0;i<response.results.length;i++) {
+                    if(moment(params.inicio).format("HH:mm") == response.results[i]){
+                        options += '<option value="'+response.results[i]+'" selected>'+response.results[i]+'</option>';
                         count_time++;
                     }else{
-                        options += '<option value="'+response[i]+'">'+response[i]+'</option>';
+                        options += '<option value="'+response.results[i]+'">'+response.results[i]+'</option>';
                     }
                 }
                 item.find('#hora').html(options);

@@ -1,6 +1,5 @@
 <?php
 
-
 use Utils\Conexao;
 
 header('Content-type: application/json');
@@ -22,7 +21,7 @@ try {
     $current_day = diasemana($current_date);
     
     $stmt = $oConexao->prepare(
-        'SELECT * FROM artista a, 
+        'SELECT a.id,at.inicio,at.fim FROM artista a, 
             artista_atendimento at 
 		WHERE a.id = at.idartista
         AND at.dia=? 
@@ -43,27 +42,22 @@ try {
     ));
     $results_service = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-    //converte a hora para minutos para poder somar o tempo de atendimento e realizar a montagem dos horarios baseado no tempo de atendimento
+    //converte a hora para minutos e somar a duração do serviço e realizar a montagem dos horarios
     $begin_time = h2m($results_artiste[0]->inicio);
     $end_time = h2m($results_artiste[0]->fim);
-
     $time = $results_service[0]->duracao;
-    $count_time = $begin_time;
     
-    $times = array();
-    $time_free = array();
+    //lista os horarios do profissional baseado na duração do serviço
     $i = 0;
-    //lista os horarios do profissional baseados no cadastro dele
+    $times = array();
+    $count_time = $begin_time;
     while($count_time <= $end_time){
         $times[$i] = $current_date.' '.m2h($count_time);
-        ++$i;
+        $i++;
         $count_time += $time;
     }
 
-    //pega os horarios ocupados
-    $current_date = date_format($date, 'Y-m-d');
-    $current_dateinit = $current_date.' 00:00:00';
-    $current_datefinal = $current_date.' 23:59:59';
+    //seta novos valores ao horário inicial e final
     $begin_time = $current_date.' '.$results_artiste[0]->inicio;
     $end_time = $current_date.' '.$results_artiste[0]->fim;
 
@@ -84,36 +78,45 @@ try {
     ));
     $results = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-    //faz a comparacao dos horarios com os horarios ocupados e monta a lista somente com os horarios livres, foi adicionado 1 minuto ao horario,
-    //para liberar a hora final no horario, pois estava entrando como horario ocupado, mas na realidade é um horario disponivel
-    for ($i = 0; $i < count($times); ++$i) {
-        $teste = true;
-        for ($j = 0; $j < count($results); ++$j) {
-            $tmp = explode(' ', $times[$i]);
-            $datatmp = $tmp[0];
-            $horatmp = $tmp[1];
-            $horatmp = h2m($horatmp) + 1;
-            $horatmp = m2h($horatmp);
-            $tmphorario = date_create($datatmp.' '.$horatmp);
-            $tmpinicio = date_create($results_artiste[$j]->inicio);
-            $tmpfinal = date_create($results_artiste[$j]->fim);
-            if ($tmphorario >= $tmpinicio && $tmphorario <= $tmpfinal) {
-                $teste = false;
+    //montagem da lista com os horarios livres
+    $time_free = array();
+
+    for($i=0;$i<count($times);$i++){
+        $exists = true;
+        for($j=0;$j<count($results);$j++){
+            $t = explode(' ',$times[$i]);
+            $date_tmp = $t[0];
+            $time_tmp = $t[1];
+            $time_tmp = h2m($time_tmp)+1;
+            $time_tmp = m2h($time_tmp);
+            $current_time_tmp = new DateTime($date_tmp.' '.$time_tmp);
+            
+            $begin_time_tmp = new DateTime($results[0]->inicio);
+            $end_time_tmp = new DateTime($results[0]->fim);
+            if ($current_time_tmp >= $begin_time_tmp && $current_time_tmp <= $end_time_tmp) {
+                $exists = false;
                 break;
             }
         }
-        if ($teste) {
+        if($exists){
             $time_free[$i] = $times[$i];
         }
     }
-    $hLivres = array();
-    //retira a data e deixa somente o horario
-    for ($i = 0; $i < count($time_free); ++$i) {
-        $tmp = explode(' ', $time_free[$i]);
-        $hLivres[$i] = $tmp[1];
-    }
 
-    $response = array_filter($hLivres);
+    //retira a data completa e deixa no padrão de horário hh:mm
+    $time_results = array();
+    $count = 0;
+
+    for($i=0;$i<count($time_free);$i++){
+
+        if($time_free[$i] != null){
+            $date_tmp = explode(' ',$time_free[$i]);
+            $time_results['results'][$count] = $date_tmp[1];
+            $count++;
+        }
+    }
+    $response = array_filter($time_results);
+
 } catch (PDOException $e) {
     http_response_code(500);
     $response->error = 'Desculpa. Tivemos um problema, tente novamente mais tarde: '. $e->getMessage();

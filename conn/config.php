@@ -2,6 +2,7 @@
 
 //ocultar os warning e alerts do php
 error_reporting(E_ALL ^ E_WARNING);
+error_reporting(E_ALL ^ E_NOTICE);
 ini_set('display_errors', 1);
 
 //definindo os dados de acesso ao banco de dados(DEVELOPER)

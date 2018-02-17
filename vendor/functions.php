@@ -197,7 +197,7 @@ function getDiaSemana($dia, $completo = 0)
 
 function h2m($hora) {
   $tmp = explode(":", $hora);
-  return ($tmp[1]+($tmp[0]*60));
+  return ((int)$tmp[1]+((int)$tmp[0]*60));;
 }
 
 function m2h($mins) {
