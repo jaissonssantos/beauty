@@ -17,7 +17,7 @@
             <div class="top-left-part">
                 <a class="logo" href="/office/dashboard">
                     <b>
-                        <img src="assets/images/common/icon_logo_white.svg" alt="home" />
+                        <img src="assets/images/common/icon_amazon_white.png" alt="home" />
                     </b>
                 </a>
             </div>

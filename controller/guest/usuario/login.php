@@ -17,8 +17,8 @@ try {
     }
 
     $stmt = $oConexao->prepare(
-        'SELECT id,idempresa,nome,email,idprofissao
-		FROM artista
+        'SELECT id,idempresa,nome,email
+		FROM usuario
 		WHERE 
             email=upper(?) 
 		AND 
@@ -33,11 +33,10 @@ try {
     $results = $stmt->fetchObject();
 
     if($results){
-        $_SESSION['labella_uid'] = $results->id;
-        $_SESSION['labella_nome'] = $results->nome;
-        $_SESSION['labella_email'] = $results->email;
-        $_SESSION['labella_empresa'] = $results->idempresa;
-        $_SESSION['labella_profissao'] = $results->idprofissao;
+        $_SESSION['eventos_uid'] = $results->id;
+        $_SESSION['eventos_nome'] = $results->nome;
+        $_SESSION['eventos_email'] = $results->email;
+        $_SESSION['eventos_empresa'] = $results->idempresa;
     } 
     http_response_code(200);
     if (!$results) {

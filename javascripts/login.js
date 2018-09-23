@@ -54,7 +54,7 @@ $(document).ready(function(){
         }
     });
 
-    $('button#entrar').livequery('click',function(event){
+    $('form#formLogin').submit(function(event){
         if($("form#formLogin").valid()){
             usuarios = {
                 email: $('form#formLogin #email').val(),

@@ -97,18 +97,18 @@ body {
   letter-spacing: 0.1999em;
 }
 .navbar-header {
-  background: #FF813F;
+  background: #387e3b;
 }
 .navbar-top-links > li > a {
   color: #ffffff;
 }
 /*Right panel*/
 .right-sidebar .rpanel-title {
-  background: #FF813F;
+  background: #387e3b;
 }
 /*Bread Crumb*/
 .bg-title .breadcrumb .active {
-  color: #FF813F;
+  color: #387e3b;
 }
 /*Sidebar*/
 .sidebar {
@@ -130,25 +130,25 @@ body {
   background: rgba(0, 0, 0, 0.03);
 }
 #side-menu > li > a.active {
-  border-left: 3px solid #FF813F;
+  border-left: 3px solid #387e3b;
   color: #2b2b2b;
   font-weight: 500;
 }
 #side-menu > li > a.active i {
-  color: #FF813F;
+  color: #387e3b;
 }
 #side-menu ul > li > a:hover {
-  color: #FF813F;
+  color: #387e3b;
 }
 #side-menu ul > li > a.active {
   color: #2b2b2b;
   font-weight: 500;
 }
 .sidebar #side-menu .user-pro .nav-second-level a:hover {
-  color: #FF813F;
+  color: #387e3b;
 }
 .fix-sidebar .top-left-part {
-  background: #FF813F;
+  background: #387e3b;
 }
 /*themecolor*/
 #page-wrapper{
@@ -162,19 +162,19 @@ body {
 }
 /*Chat widget*/
 .chat-list .odd .chat-text {
-  background: #FF813F;
+  background: #387e3b;
 }
 /*Button*/
 .btn-custom {
-  background: #FF813F;
-  border: 1px solid #FF813F;
+  background: #387e3b;
+  border: 1px solid #387e3b;
   color: #ffffff;
 }
 .btn-custom:hover {
-  background: #FF813F;
+  background: #387e3b;
   opacity: 0.8;
   color: #ffffff;
-  border: 1px solid #FF813F;
+  border: 1px solid #387e3b;
 }
 .btn-block .btn-label{
   float: left;
@@ -184,20 +184,20 @@ body {
 .customtab li.active a,
 .customtab li.active a:hover,
 .customtab li.active a:focus {
-  border-bottom: 2px solid #FF813F;
-  color: #FF813F;
+  border-bottom: 2px solid #387e3b;
+  color: #387e3b;
 }
 .tabs-vertical li.active a,
 .tabs-vertical li.active a:hover,
 .tabs-vertical li.active a:focus {
-  background: #FF813F;
-  border-right: 2px solid #FF813F;
+  background: #387e3b;
+  border-right: 2px solid #387e3b;
 }
 /*Nav-pills*/
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:focus,
 .nav-pills > li.active > a:hover {
-  background: #FF813F;
+  background: #387e3b;
   color: #ffffff;
 }
 /*outline btn*/
@@ -235,7 +235,7 @@ i.btn-label{
 }
 .btn-op i{
   font-size: 20px;
-  color: #FF813F;
+  color: #387e3b;
 }
 .m-t-25 {
     margin-top: 25px !important;
@@ -390,6 +390,12 @@ i.btn-label{
 }
 .modal-footer{
   display: block;
+}
+
+form#formAdd abbr {
+    margin-left: 2px;
+    margin-right: 2px;
+    color: #F44317
 }
 /*nav-tabs*/
 .nav-custom .nav-link.active, .nav-custom > li.active > a, .nav-custom > li.active > a:hover, .nav-custom > li.active > a:focus{

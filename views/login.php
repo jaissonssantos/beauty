@@ -6,10 +6,10 @@
 <div class="area imagem">
     <div class="fade-login"></div>
     <a href="/" class="voltar" title="Voltar">Voltar</a>
-    <span class="direitos">Todos os direitos reservados © 2017-<?=date('Y')?> LA BELLA LTDA.</span>
+    <span class="direitos">Todos os direitos reservados © 2017-<?=date('Y')?> AMAZON EVENTOS LTDA. </span>
 </div>
 <div class="area area-login">
-    <img src="assets/images/common/icon_logo_orange.svg" border="0" class="logo" />
+    <img src="assets/images/common/icon_amazon.png" border="0" class="logo" width="200" />
     <div class="container-login">
         <form id="formLogin" name="formLogin">
             <div class="row">

@@ -1,5 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:100);
-@import url(https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+/*@import url(https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css);*/
 
 /***************************************************
   GERAL
@@ -16,13 +16,13 @@ body { font-family: 'Roboto', sans-serif; font-size: 13px; color: rgb(34,34,34);
 .voltar { background: url(../images/common/icon_return.svg) no-repeat center center; background-size: contain; display: block; width: 30px; height: 30px; text-indent: -999px; overflow: hidden; position: relative; margin: 10px; }
 
 .area { display: block; float: left; }
-.imagem { background: url(../images/pages/bg1.jpg) no-repeat center center; background-size: cover; display: block; width: 70%; height: 100%; position: relative; }
+.imagem { background: url(../images/pages/bg4.jpg) no-repeat center center; background-size: cover; display: block; width: 70%; height: 100%; position: relative; }
   .imagem h1 { color: rgb(255,255,255); z-index: 10; position: absolute; bottom: 30px; left: 10%; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.80); font-family: "Open Sans",Helvetica Neue,sans-serif; font-size: 1.6em; width: 80%; }
   .imagem .direitos { color: rgb(255,255,255); z-index: 10; position: absolute; bottom: 10px; left: 10%; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.80); font-family: "Open Sans",Helvetica Neue,sans-serif; font-size: 0.9em; width: 80%; }
   .imagem h1 strong { color: rgb(0, 0, 60); } 
   .imagem h1 strong span { color: #E40000; } 
 .area-login { display: block; width: 30%; height: 100%; background-color: rgb(255,255,255); -webkit-box-shadow: 0px 0px 2px 0px rgba(50, 50, 50, 0.3); -moz-box-shadow: 0px 0px 2px 0px rgba(50, 50, 50, 0.3); box-shadow: 0px 0px 2px 0px rgba(50, 50, 50, 0.3); z-index: 5; }
-  .area-login img { width: 200px; position: relative; left: 50%; margin: 20px 0 30px -100px; }
+  .area-login img { width: 300px; position: relative; left: 50%; margin: 40px 0 50px -160px; }
   .area-login .container-login { width: 80%; margin-left: 10%; }
     .area-login form .container-campos { border: 1px solid rgba(0, 0, 0, 0.07); border-radius: 2px; padding: 10px 10px 0; margin-bottom: 20px; }
       .container-campos .form-group { margin-bottom: 5px; } 
@@ -43,6 +43,10 @@ body { font-family: 'Roboto', sans-serif; font-size: 13px; color: rgb(34,34,34);
   form .botao { margin: 10px 0; }
   form .has-error .form-control{
     box-shadow: none;
+  }
+
+  .help-block{
+    font-size: 15px;
   }
     
 

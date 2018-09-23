@@ -154,11 +154,11 @@ $(document).ready(function(){
         $('.tooltip-calendar').css('left', attributes.clientX);
     }
 
-    $('button.tooltipClose').livequery('click',function(event){
+    $('button.tooltipClose').on('click',function(event){
         $('.tooltip-calendar').addClass('hidden');
     });
 
-    $('button#schedule').livequery('click',function(event){
+    $('button#schedule').on('click',function(event){
         var options = {
             cache:false,
             show: true,

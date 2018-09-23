@@ -8,7 +8,7 @@ ini_set('display_errors', 1);
 //definindo os dados de acesso ao banco de dados(DEVELOPER)
 define('DB', 'mysql');
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'labella');
+define('DB_NAME', 'eventos');
 define('DB_USER', 'root');
 define('DB_PASS', 'root');
 define('SALT', '&$_100#*xh!9%0'); //nunca mudar(salt padrão)
@@ -23,21 +23,21 @@ define('SALT', '&$_100#*xh!9%0'); //nunca mudar(salt padrão)
 
 
 //definindo as URLs padrões do sistema e site
-define('URL_APP', 'http://localhost');
+define('URL_APP', 'http://192.168.1.64');
 define('STORAGE_URL', 'http://localhost/assets/images');
-define('TITLE_APP', 'La Bella - beleza e bem-estar de forma que você quer!');
-define('EMAIL_TITLE', 'La Bella');
-define('EMAIL_NOREPLAY', 'labella.ac@gmail.com');
+define('TITLE_APP', 'Event Zonas - Eventos na fronteira!');
+define('EMAIL_TITLE', 'Event Zonas');
+define('EMAIL_NOREPLAY', 'eventzonas@gmail.com');
 define('EMAIL_SUPPORT', 'jaissonssantos@gmail.com');
 define('DEBUG', false);
 
 //PagSeguro(SANDBOX)
-define('PAGSEGURO_EMAIL', 'jaissonssantos@gmail.com');
-define('PAGSEGURO_TOKEN', 'A23B0F63E9684FF489709FC57243801A');
-define('sessionURL', 'https://ws.sandbox.pagseguro.uol.com.br/v2/sessions');
-define('transactionsURL', 'https://ws.sandbox.pagseguro.uol.com.br/v2/transactions');
-define('notificationsURL', 'https://ws.pagseguro.uol.com.br/v3/transactions/notifications');
-define('javascriptURL', 'https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js');
+// define('PAGSEGURO_EMAIL', 'jaissonssantos@gmail.com');
+// define('PAGSEGURO_TOKEN', 'A23B0F63E9684FF489709FC57243801A');
+// define('sessionURL', 'https://ws.sandbox.pagseguro.uol.com.br/v2/sessions');
+// define('transactionsURL', 'https://ws.sandbox.pagseguro.uol.com.br/v2/transactions');
+// define('notificationsURL', 'https://ws.pagseguro.uol.com.br/v3/transactions/notifications');
+// define('javascriptURL', 'https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js');
 
 //PagSeguro(PRODUÇÃO)
 // define('PAGSEGURO_EMAIL', 'kambo.tecnologia@gmail.com');

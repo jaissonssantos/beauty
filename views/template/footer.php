@@ -1,6 +1,6 @@
 		</div>
         <!-- /.container-fluid -->
-        <footer class="footer text-center"> <?=date('Y')?> &copy; Kambô Tecnologia. Todos os direitos reservados. </footer>
+        <footer class="footer text-center"> <?=date('Y')?> &copy; Amazon eventos. Todos os direitos reservados. </footer>
     </div>
     <!-- /#page-wrapper -->
 </div>

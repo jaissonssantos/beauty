@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     //sair da conta
-    $('a#sair').livequery('click',function(event){
+    $('a#sair').on('click',function(event){
         app.util.getjson({
             url : "/controller/guest/usuario/logout",
             method : 'POST',
@@ -15,7 +15,7 @@ $(document).ready(function(){
         return false;
 	});
 
-    $('a#mudarsenha').livequery('click',function(event){
+    $('a#mudarsenha').on('click',function(event){
 
         var options = {
             cache:false,

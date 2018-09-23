@@ -263,7 +263,7 @@ $(document).ready(function(){
     });
 
     //note
-    $('button#action-note').livequery('click',function(event){
+    $('button#action-note').on('click',function(event){
         if($('div#note').hasClass('hidden')){
             $(this).html('- Nota');
             $('div#note').removeClass('hidden', 1000, "slow");
@@ -275,7 +275,7 @@ $(document).ready(function(){
     });
 
     //add reserve
-    $('a#add').livequery('click',function(event){
+    $('a#add').on('click',function(event){
         var count = $('div#reserva').length;
         if(count <= 1){
             var reserva = $('div#reserva:first').clone();
@@ -288,7 +288,7 @@ $(document).ready(function(){
     });
     
     //remove reserve
-    $('button#excluir').livequery('click',function(event){
+    $('button#excluir').on('click',function(event){
         var item = $(this).parents('#reserva');
         item.remove();
         $('a#add').parents('.row').removeClass('hidden');
@@ -296,7 +296,7 @@ $(document).ready(function(){
     });
 
     //save
-    $('button#salvar').livequery('click',function(event){
+    $('button#salvar').on('click',function(event){
         // if($("form#formCliente").valid()){
         //     clientes = {
         //         id: $('#id').val(),

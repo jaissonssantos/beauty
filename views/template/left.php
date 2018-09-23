@@ -1,4 +1,4 @@
-<!-- Left navbar-header -->
+Left navbar-header -->
 <div class="navbar-default sidebar" role="navigation">
 
     <div class="sidebar-nav navbar-collapse slimscrollsidebar">
@@ -10,7 +10,7 @@
                         alt="user-img" 
                         class="img-circle"> 
                         <span class="hide-menu">
-                            <?=$_SESSION['labella_nome']?>
+                            <?=$_SESSION['eventos_nome']?>
                         <span class="fa arrow"></span>
                     </span>
                 </a>
@@ -29,15 +29,15 @@
                 </a>
             </li>
 
-            <?php if(isset($_SESSION['congresso_gestor']) && $_SESSION['congresso_gestor'] == 1){ ?>
+            <?php // if(isset($_SESSION['congresso_gestor']) && $_SESSION['congresso_gestor'] == 1){ ?>
                 <li> 
-                    <a href="/administrador/pagamento" class="waves-effect">
-                        <i class="ti-money fa-fw" data-icon="v"></i> <span class="hide-menu"> Pagamentos </span>
+                    <a href="/office/evento" class="waves-effect">
+                        <i class="ti-calendar p-r-10" data-icon="v"></i> <span class="hide-menu"> Eventos </span>
                     </a>
                 </li>
-                <li> 
+                <!-- <li> 
                     <a href="/administrador/cliente" class="waves-effect">
-                        <i class="icon-people fa-fw" data-icon="v"></i> <span class="hide-menu"> Clientes </span>
+                        <i class="icon-people fa-fw" data-icon="v"></i> <span class="hide-menu"> Visitas </span>
                     </a>
                 </li>
                 <li> 
@@ -49,8 +49,8 @@
                     <a href="/administrador/deficiencia" class="waves-effect">
                         <i class="fa fa-wheelchair" data-icon="v"></i> <span class="hide-menu"> Deficiência </span>
                     </a>
-                </li>
-            <?php } ?>
+                </li> -->
+            <?php // } ?>
 
             <?php if(isset($_SESSION['congresso_gestor']) && $_SESSION['congresso_gestor'] != 1){ ?>
                 <li> 
@@ -64,4 +64,4 @@
         </ul>
     </div>
 </div>
-<!-- Left navbar-header end -->
+<!-- Left navbar-header end

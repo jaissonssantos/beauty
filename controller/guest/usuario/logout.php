@@ -10,11 +10,11 @@ $response = new stdClass();
 try {
 
 	if(session_id()){
-		unset($_SESSION['labella_uid']);
-		unset($_SESSION['labella_nome']);
-		unset($_SESSION['labella_email']);
-		unset($_SESSION['labella_empresa']);
-		unset($_SESSION['labella_profissao']);
+		unset($_SESSION['eventos_uid']);
+		unset($_SESSION['eventos_nome']);
+		unset($_SESSION['eventos_email']);
+		unset($_SESSION['eventos_empresa']);
+		unset($_SESSION['eventos_profissao']);
 		$response->success = 'Usuário saiu da plataforma';
 		http_response_code(200);
 	}
